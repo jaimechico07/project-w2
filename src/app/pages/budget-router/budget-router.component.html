@@ -1,0 +1,30 @@
+<div class="w-full px-4">
+  <div>
+    <h1 class="text-dynamic-h1 font-fugaz-one text-center mb-4 mt-10">
+      Gastos
+    </h1>
+  </div>
+  <div class="flex flex-col items-center">
+    <p class="text-gray-700 font-medium mb-2">Monto inicial: {{ monto }}</p>
+    <!-- Aquí puedes agregar el formulario para restar los gastos -->
+    <label for="gasto" class="text-gray-700 font-medium mb-2">Gasto:</label>
+    <input
+      type="number"
+      id="gasto"
+      class="form-input border w-full max-w-96 border-gray-300 rounded-md px-2 py-2"
+      [(ngModel)]="gasto"
+    />
+    <button
+      class="bg-blue-500 text-white font-medium rounded-md px-4 py-2 mt-4"
+      (click)="restarGasto()"
+    >
+      Restar
+    </button>
+    <div class="text-red-500 mt-2" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+    <div class="text-gray-700 font-medium mt-4">
+      Monto restante: {{ montoRestante }}
+    </div>
+  </div>
+</div>
