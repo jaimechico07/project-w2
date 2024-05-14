@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Descripcion
+
+Este proyecto trata de una plataforma diseñada para ayudarte a organizar y mejorar tus habilidades culinarias. Desde planificar comidas hasta aprender nuevas recetas, esta herramienta todo en uno te ofrece las funciones necesarias para convertirte en un chef en casa.
+
+## Framework utilizado
+- Tailwind css
+
+## Librerias
+
+## descargar proyecto en :
+
+https://github.com/jaimechico07/project-w2 
