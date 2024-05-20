@@ -10,8 +10,8 @@ module.exports = {
         "blue-primary": "#2D467A",
         "pink-primary": "#FCADAA",
         "beach-primary": "#FEDFCE",
+        "cream-primary": "#E6D7CA",
       },
-
       fontFamily: {
         "fugaz-one": ["Fugaz One", "sans-serif"],
         comfortaa: ["Comfortaa", "sans-serif"],

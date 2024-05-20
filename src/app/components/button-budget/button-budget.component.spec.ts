@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Ruta2Component } from './ruta2.component';
+import { ButtonBudgetComponent } from './button-budget.component';
 
-describe('Ruta2Component', () => {
-  let component: Ruta2Component;
-  let fixture: ComponentFixture<Ruta2Component>;
+describe('ButtonBudgetComponent', () => {
+  let component: ButtonBudgetComponent;
+  let fixture: ComponentFixture<ButtonBudgetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Ruta2Component]
+      imports: [ButtonBudgetComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(Ruta2Component);
+    fixture = TestBed.createComponent(ButtonBudgetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

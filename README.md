@@ -34,6 +34,7 @@ Este proyecto trata de una plataforma diseñada para ayudarte a organizar y mejo
 - Tailwind css
 
 ## Librerias
+- jspdf: Una libreria para generar PDFs en JavaScript
 
 ## descargar proyecto en :
 

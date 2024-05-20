@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';//formulario
-import { raceWith } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -81,7 +81,5 @@ export class MassCalculatorComponent {
     this.miliL = 15;
     this.tazas = 20;
   }
-
-
 
 }
