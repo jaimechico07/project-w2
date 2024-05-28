@@ -1,21 +1,61 @@
 <div class="container mx-auto h-screen p-4">
-  <div class="grid grid-cols-4 place-content-center h-full gap-4">
-    <a routerLink="/BudgetComponent" class="col-span-2 row-span-2">
-      <div class="bg-brown-primary h-96 rounded-[40px] p-4">Presupuesto</div>
+  <div
+    class="flex flex-col gap-2 lg:grid lg:grid-cols-4 lg:grid-rows-4 lg:gap-4 h-full lg:place-content-center"
+  >
+    <a routerLink="/calculator" class="col-span-1 row-span-1">
+      <div class="bg-brown-primary h-full rounded-[40px] p-4">Calculadora</div>
     </a>
-    <a routerLink="/Masscalculator" class="col-span-2 row-span-1">
-      <div class="bg-green-primary rounded-[40px] h-full p-4">Masas</div>
+    <a routerLink="/BudgetComponent" class="col-start-1 col-end-2">
+      <img
+        src="../../../assets/presupuestos.jpg"
+        class="bg-yellow-primary h-full rounded-[40px] m-auto grayscale hover:grayscale-0 duration-300 transition max-w-[400px] lg:w-full"
+      />
     </a>
-    <a routerLink="/ruta3" class="col-span-1 row-span-2">
-      <div class="bg-pink-primary rounded-[40px] h-full p-4">
-        Video de Recetas
+    <a
+      routerLink="/Masscalculator"
+      class="col-start-1 col-end-2 row-start-3 row-end-5"
+    >
+      <div class="bg-green-primary h-full rounded-[40px] p-4">Masas</div>
+    </a>
+    <a routerLink="/cookingMusic" class="">
+      <div class="bg-pink-primary h-full rounded-[40px] p-4">
+        Playlist para cocinar
       </div>
     </a>
-    <a routerLink="/ruta4" class="col-span-1 row-span-1">
-      <div class="bg-yellow-primary rounded-[40px] h-full p-4">To Do List</div>
+    <a
+      routerLink="/todolist"
+      class="col-start-3 col-end-4 row-start-1 row-end-4"
+    >
+      <img
+        src="../../../assets/toDo.webp"
+        class="bg-green-primary h-full rounded-[40px] lg:p-4 grayscale hover:grayscale-0 duration-300 transition max-w-[400px] lg:w-full m-auto"
+      />
     </a>
-    <a routerLink="/ruta5" class="col-span-2 row-span-1">
-      <div class="bg-beach-primary rounded-[40px] h-full p-4">Recetas</div>
+    <a routerLink="/hour" class="col-start-4 col-end-5 row-start-1 row-end-2">
+      <div class="bg-pink-primary h-full rounded-[40px] p-4">Hora</div>
     </a>
+    <a
+      routerLink="/recipes"
+      class="col-start-4 col-end-5 row-start-3 row-end-5"
+    >
+      <img
+        src="../../../assets/recetario.jpg"
+        class="h-full w-full rounded-[40px] grayscale hover:grayscale-0 duration-300 transition max-w-[400px] lg:w-full m-auto"
+      />
+    </a>
+    <a routerLink="/timer" class="col-start-4 col-end-5 row-start-2 row-end-3">
+      <div class="bg-beach-primary h-full rounded-[40px] p-4">Timer</div>
+    </a>
+    <figure class="col-start-2 col-end-3 row-start-1 row-end-3 rounded-[40px]">
+      <img
+        src="../../../assets/concentrated-female-chef-garnishing-food-in-kitchen2.webp"
+        class="rounded-[40px] h-full max-w-[400px] lg:w-full m-auto"
+      />
+    </figure>
+    <figure
+      class="h-full col-start-2 col-end-4 row-start-4 row-end-5 mt-8 lg:mt-0"
+    >
+      <img src="../../../assets/logo.webp" class="h-full w-full m-auto" />
+    </figure>
   </div>
 </div>

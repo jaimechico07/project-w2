@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Ruta4Component } from './ruta4.component';
+import { HourComponent } from './hour.component';
 
-describe('Ruta4Component', () => {
-  let component: Ruta4Component;
-  let fixture: ComponentFixture<Ruta4Component>;
+describe('HourComponent', () => {
+  let component: HourComponent;
+  let fixture: ComponentFixture<HourComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Ruta4Component]
+      imports: [HourComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(Ruta4Component);
+    fixture = TestBed.createComponent(HourComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

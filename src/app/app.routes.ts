@@ -2,24 +2,27 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { BudgetComponent } from './pages/budget/budget.component';
 import { BudgetRouterComponent } from './pages/budget-router/budget-router.component';
+import { TimerComponent } from './pages/timer/timer.component';
+import { RecipesComponent } from './pages/recipes/recipes.component';
+import { CookingMusicComponent } from './pages/cooking-music/cooking-music.component';
+import { CalculatorComponent } from './pages/calculator/calculator.component';
+import { TodolistComponent } from './pages/todolist/todolist.component';
+import { HourComponent } from './pages/hour/hour.component';
 
-
-import { Ruta3Component } from './pages/ruta3/ruta3.component';
-import { Ruta4Component } from './pages/ruta4/ruta4.component';
-import { Ruta5Component } from './pages/ruta5/ruta5.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MassCalculatorComponent } from './pages/mass-calculator/mass-calculator.component';
-
-
 
 export const routes: Routes = [
   { path:"", component:HomeComponent},
   { path: 'BudgetComponent', component: BudgetComponent },
   { path: 'BudgetRouterComponent/:monto', component: BudgetRouterComponent},
   { path: 'Masscalculator', component: MassCalculatorComponent },
-  { path: 'ruta3', component: Ruta3Component },
-  { path: 'ruta4', component: Ruta4Component },
-  { path: 'ruta5', component: Ruta5Component },
+  { path: 'recipes', component: RecipesComponent },
+  { path: 'cookingMusic', component: CookingMusicComponent },
+  { path: 'timer', component: TimerComponent },
+  { path: 'calculator', component: CalculatorComponent },
+  { path: 'hour', component: TodolistComponent},
+  { path: 'todolist', component: HourComponent  },
   {
     path: 'not-found', component: NotFoundComponent
   },
