@@ -21,8 +21,8 @@ export const routes: Routes = [
   { path: 'cookingMusic', component: CookingMusicComponent },
   { path: 'timer', component: TimerComponent },
   { path: 'calculator', component: CalculatorComponent },
-  { path: 'hour', component: TodolistComponent},
-  { path: 'todolist', component: HourComponent  },
+  { path: 'hour', component: HourComponent},
+  { path: 'todolist', component: TodolistComponent  },
   {
     path: 'not-found', component: NotFoundComponent
   },
