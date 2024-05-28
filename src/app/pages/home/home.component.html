@@ -1,25 +1,42 @@
-<div class="container mx-auto h-screen p-4">
+<div class="container mx-auto h-screen p-4 font-comfortaa">
   <div
     class="flex flex-col gap-2 lg:grid lg:grid-cols-4 lg:grid-rows-4 lg:gap-4 h-full lg:place-content-center"
   >
     <a routerLink="/calculator" class="col-span-1 row-span-1">
       <div class="bg-brown-primary h-full rounded-[40px] p-4">Calculadora</div>
     </a>
-    <a routerLink="/BudgetComponent" class="col-start-1 col-end-2">
+    <a
+      routerLink="/BudgetComponent"
+      class="col-start-1 col-end-2 relative group"
+    >
       <img
-        src="../../../assets/presupuestos.jpg"
-        class="bg-yellow-primary h-full rounded-[40px] m-auto grayscale hover:grayscale-0 duration-300 transition max-w-[400px] lg:w-full"
+        src="../../../assets/Presupuesto.png"
+        class="bg-yellow-primary h-full rounded-[40px] m-auto max-w-[400px] lg:w-full"
       />
+      <div
+        class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        <span class="text-[#845751] font-bold text-3xl">Presupuesto</span>
+      </div>
     </a>
     <a
-      routerLink="/Masscalculator"
+      routerLink="/cookingMusic"
       class="col-start-1 col-end-2 row-start-3 row-end-5"
     >
-      <div class="bg-green-primary h-full rounded-[40px] p-4">Masas</div>
-    </a>
-    <a routerLink="/cookingMusic" class="">
-      <div class="bg-pink-primary h-full rounded-[40px] p-4">
+      <div class="bg-green-primary h-full rounded-[40px] p-4">
         Playlist para cocinar
+      </div>
+    </a>
+
+    <a routerLink="/Masscalculator" class="relative group">
+      <img
+        src="../../../assets/galletaaa.webp"
+        class="bg-pink-primary h-full rounded-[40px] w-full p-4 object-contain"
+      />
+      <div
+        class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        <span class="text-[#845751] font-bold text-3xl">Masa</span>
       </div>
     </a>
     <a
@@ -28,7 +45,7 @@
     >
       <img
         src="../../../assets/toDo.webp"
-        class="bg-green-primary h-full rounded-[40px] lg:p-4 grayscale hover:grayscale-0 duration-300 transition max-w-[400px] lg:w-full m-auto"
+        class="bg-green-primary h-full rounded-[40px] lg:p-4 max-w-[400px] lg:w-full m-auto"
       />
     </a>
     <a routerLink="/hour" class="col-start-4 col-end-5 row-start-1 row-end-2">
@@ -40,22 +57,36 @@
     >
       <img
         src="../../../assets/recetario.jpg"
-        class="h-full w-full rounded-[40px] grayscale hover:grayscale-0 duration-300 transition max-w-[400px] lg:w-full m-auto"
+        class="h-full w-full rounded-[40px] max-w-[400px] lg:w-full m-auto"
       />
     </a>
-    <a routerLink="/timer" class="col-start-4 col-end-5 row-start-2 row-end-3">
-      <div class="bg-beach-primary h-full rounded-[40px] p-4">Timer</div>
+    <a
+      routerLink="/timer"
+      class="col-start-4 col-end-5 row-start-2 row-end-3 relative group"
+    >
+      <img
+        src="../../../assets/timer.png"
+        class="bg-yellow-primary h-full rounded-[40px] m-auto max-w-[400px] lg:w-full"
+      />
+      <div
+        class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        <span class="text-[#845751] font-bold text-3xl">Temporizador</span>
+      </div>
     </a>
     <figure class="col-start-2 col-end-3 row-start-1 row-end-3 rounded-[40px]">
       <img
-        src="../../../assets/concentrated-female-chef-garnishing-food-in-kitchen2.webp"
+        src="../../../assets/planta.webp"
         class="rounded-[40px] h-full max-w-[400px] lg:w-full m-auto"
       />
     </figure>
     <figure
       class="h-full col-start-2 col-end-4 row-start-4 row-end-5 mt-8 lg:mt-0"
     >
-      <img src="../../../assets/logo.webp" class="h-full w-full m-auto" />
+      <img
+        src="../../../assets/Logoooo-removebg-preview.png"
+        class="h-full w-full m-auto"
+      />
     </figure>
   </div>
 </div>

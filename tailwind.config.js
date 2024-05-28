@@ -22,6 +22,9 @@ module.exports = {
         "dynamic-h2": "clamp(1rem, 0.9024rem + 0.4878vw, 1.5rem)",
         "dynamic-text": "clamp(0.75rem, 0.7012rem + 0.2439vw, 1rem)",
       },
+      backgroundImage: {
+        "fondo-image": "url('/src/assets/fondo.webp')",
+      },
     },
   },
   plugins: [],
