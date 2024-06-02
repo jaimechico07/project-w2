@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ButtonBudgetComponent } from './button-budget.component';
+import { ButtonFloatingComponent } from './button-floating.component';
 
-describe('ButtonBudgetComponent', () => {
-  let component: ButtonBudgetComponent;
-  let fixture: ComponentFixture<ButtonBudgetComponent>;
+describe('ButtonFloatingComponent', () => {
+  let component: ButtonFloatingComponent;
+  let fixture: ComponentFixture<ButtonFloatingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonBudgetComponent]
+      imports: [ButtonFloatingComponent]
     })
     .compileComponents();
-
-    fixture = TestBed.createComponent(ButtonBudgetComponent);
+    
+    fixture = TestBed.createComponent(ButtonFloatingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,5 +21,3 @@ describe('ButtonBudgetComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-

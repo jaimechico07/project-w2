@@ -5,7 +5,7 @@
     </h1>
   </div>
   <div class="flex justify-center gap-5 z-30 max-w-[1000px] mx-auto">
-    <div class="flex flex-col gap-2 items-center">
+    <div class="flex flex-col gap-4 items-center">
       <p class="text-gray-700 font-medium">Monto inicial: S/ {{ monto }}</p>
       <label for="gasto" class="text-gray-700 font-medium">Gasto:</label>
       <input
@@ -18,16 +18,12 @@
       <p for="precio" class="text-gray-700 font-medium text-start">
         Ingrese el precio:
       </p>
-
       <input
         type="number"
         id="gasto"
         class="form-input border w-full md:w-[500px] border-gray-300 outline-none rounded-md px-2 py-2"
         [(ngModel)]="gasto"
       />
-      <div class="text-red-500 text-dynamic-text" *ngIf="gasto < 0">
-        <p>*El gasto debe ser mayor que 0.</p>
-      </div>
       <textarea
         type="text"
         id="descripcionGasto"
@@ -35,20 +31,11 @@
         class="border w-full md:w-[500px] h-24 border-gray-300 outline-none rounded-md px-2 py-2 resize-none"
         [(ngModel)]="descripcionGasto"
       ></textarea>
-      <!-- <button
-          class="py-2 px-8 bg-transparent text-black rounded-lg border border-black hover:bg-black hover:text-white duration-300 hover:translate-y-2"
-          (click)="restarGasto()"
-        >
-          Restar
-        </button> -->
       <app-button-budget
         [buttonText]="'Restar'"
         (buttonClick)="restarGasto()"
       ></app-button-budget>
-
-      <div class="text-red-500" *ngIf="showAddAlert && errorMessage">
-        {{ errorMessage }}
-      </div>
+      <app-error-message [message]="addErrorMessage"></app-error-message>
       <div class="text-gray-700 font-medium">
         Monto restante: {{ montoRestante }}
       </div>
@@ -62,6 +49,7 @@
         Generar PDF
       </button>
     </div>
+
     <div>
       <h2
         *ngIf="gastos.length >= 1"
@@ -141,20 +129,15 @@
       class="form-input border w-full border-gray-300 outline-none rounded-md mb-4 px-2 py-2"
       [(ngModel)]="gastoEdit"
     />
-    <div class="text-red-500" *ngIf="showEditAlert && errorMessage">
-      {{ errorMessage }}
-    </div>
-    <div class="text-red-500 text-dynamic-text mb-2" *ngIf="gastoEdit < 0">
-      <p>*El gasto debe ser mayor que 0.</p>
-    </div>
     <label for="descripcionGastoEdit" class="text-gray-700 font-medium mb-2"
       >Descripción:</label
     >
     <textarea
       id="descripcionGastoEdit"
-      class="form-input border w-full h-24 border-gray-300 outline-none rounded-md mb-6 px-2 py-2"
+      class="form-input border w-full h-24 border-gray-300 outline-none rounded-md mb-2 px-2 py-2"
       [(ngModel)]="descripcionGastoEdit"
     ></textarea>
+    <app-error-message [message]="editErrorMessage"></app-error-message>
     <div class="flex justify-end gap-4">
       <button
         class="bg-gray-500 text-white font-medium rounded-md px-4 py-2"
@@ -171,3 +154,4 @@
     </div>
   </div>
 </div>
+

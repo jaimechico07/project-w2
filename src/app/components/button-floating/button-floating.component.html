@@ -1,0 +1,33 @@
+<div class="absolute bottom-12 right-12">
+  <div
+    class="rounded-full bg-black p-4 flex items-center cursor-pointer relative z-[10]"
+    (click)="toggleVisibility()"
+  >
+    <i-tabler
+      name="plus"
+      class="text-white font-medium bg-black"
+      [style.transform]="showCircles ? 'rotate(45deg)' : 'rotate(0deg)'"
+    ></i-tabler>
+  </div>
+  <div
+    *ngIf="showCircles"
+    class="absolute inset-0 flex justify-center items-center z-[1]"
+  >
+    <a
+      *ngFor="let circle of navigationItems; let i = index"
+      [routerLink]="circle.link"
+      class="absolute h-6 w-6 rounded-full flex items-center cursor-pointer"
+      [style.transform]="'rotate(' + 45 * i + 'deg) translateY(-50px)'"
+      [style.background]="circle.color"
+      (mouseover)="setHoveredItem(circle)"
+      (mouseout)="hoveredItem = null"
+      ><i-tabler [name]="circle.icon"></i-tabler>
+    </a>
+  </div>
+  <div
+    *ngIf="hoveredItem"
+    class="text-start absolute top-0 right-[100px] bg-white p-2 rounded-lg"
+  >
+    {{ hoveredItem.text }}
+  </div>
+</div>

@@ -9,7 +9,7 @@ import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
 import { ButtonBudgetComponent } from '../../components/button-budget/button-budget.component';
-
+import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
 //iconos
 import { IconsModule } from '../../icons/icons.module';
 
@@ -22,25 +22,25 @@ interface Gasto {
 @Component({
   selector: 'app-budget-router',
   standalone: true,
-  imports: [FormsModule, CommonModule, IconsModule,ButtonBudgetComponent ],
+  imports: [FormsModule, CommonModule, IconsModule, ButtonBudgetComponent, ErrorMessageComponent  ],
   templateUrl: './budget-router.component.html',
   styleUrls: ['./budget-router.component.css']
 })
 export class BudgetRouterComponent implements OnInit {
 
-  showAddAlert: boolean = false;
-  showEditAlert: boolean = false;
-
   gastos: Gasto[] = [];
 
   monto: number = 0;
-  gasto: number = 0;
+  gasto: number = 0 ;
   nombreGasto: string = '';
   descripcionGasto: string = '';
 
   montoRestante: number = 0;
   gastoRealizado: number = 0;
-  errorMessage: string = '';
+
+  //mensajes de error
+  addErrorMessage: string = '';
+  editErrorMessage: string = '';
 
   //editar
   isEditing: boolean = false;
@@ -59,11 +59,11 @@ export class BudgetRouterComponent implements OnInit {
 
   restarGasto() {
     if (this.gasto > this.montoRestante) {
-      this.showEditAlert = false
-      this.showAddAlert = true;
-      this.errorMessage = 'No puede gastar más del presupuesto disponible.';
-    } else if (this.gasto < 0 || this.nombreGasto.trim() === '') {
-      this.errorMessage = 'Por favor ingrese un nombre y un monto válido para el gasto.';
+      this.addErrorMessage = 'No puede gastar más del presupuesto disponible.';
+    } else if (this.gasto < 0) {
+      this.addErrorMessage = 'El gasto debe ser mayor o igual que 0';
+    } else if (this.nombreGasto.trim() === ''){
+      this.addErrorMessage = 'El nombre no puede estar vacío.';
     } else {
       this.montoRestante -= this.gasto;
       this.gastoRealizado += this.gasto;
@@ -71,7 +71,7 @@ export class BudgetRouterComponent implements OnInit {
       this.gasto = 0;
       this.nombreGasto = '';
       this.descripcionGasto = '';
-      this.errorMessage = '';
+      this.addErrorMessage = '';
     }
   }
 
@@ -93,18 +93,17 @@ export class BudgetRouterComponent implements OnInit {
   cancelarEdicion() {
     this.isEditing = false;
     this.editIndex = null;
+    this.editErrorMessage = '';
   }
 
   guardarEdicion() {
-    if (this.editIndex !== null && this.gastoEdit > 0 && this.nombreGastoEdit.trim() !== '') {
+    if (this.editIndex !== null && this.gastoEdit >= 0 && this.nombreGastoEdit.trim() !== '') {
       const gastoAnterior = this.gastos[this.editIndex];
       const diferencia = this.gastoEdit - gastoAnterior.precio;
 
       // Verificar si el nuevo gasto excede el presupuesto disponible
       if (diferencia > this.montoRestante) {
-        this.showAddAlert = false
-        this.showEditAlert = true;
-        this.errorMessage = 'No tiene suficiente presupuesto disponible para este gasto.';
+        this.editErrorMessage = '*No tiene suficiente presupuesto disponible para este gasto.';
         return;
       }
 
@@ -119,9 +118,13 @@ export class BudgetRouterComponent implements OnInit {
       this.gastos[this.editIndex] = gastoActualizado;
       this.isEditing = false;
       this.editIndex = null;
-      this.errorMessage = '';
-    } else {
-      this.errorMessage = 'Por favor ingrese un nombre y un monto válido para el gasto.';
+      this.editErrorMessage = '';
+
+
+    } else if (this.gastoEdit < 0)  {
+      this.editErrorMessage = '*El gasto debe ser mayor que 0.';
+    } else if (this.nombreGastoEdit.trim() == '') {
+      this.editErrorMessage = '*El nombre no puede estar vacío.'
     }
 
   }
@@ -139,6 +142,7 @@ export class BudgetRouterComponent implements OnInit {
       ];
       tableData.push(rowData);
     });
+
 
     doc.text(`Monto inicial: S/ ${this.monto}`, 10, 10);
     doc.text(`Gasto realizado: S/ ${this.gastoRealizado}`, 10, 20);

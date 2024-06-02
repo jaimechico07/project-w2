@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { RouterLink} from '@angular/router'
-import { HomeComponent } from './pages/home/home.component';
-import { BudgetComponent } from './pages/budget/budget.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ButtonFloatingComponent } from './components/button-floating/button-floating.component';
+import { initFlowbite } from 'flowbite';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink,HomeComponent, BudgetComponent, NotFoundComponent],
+  imports: [CommonModule, RouterOutlet, NotFoundComponent,ButtonFloatingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
   title = 'my-project-w2';
+
+  ngOnInit(): void {
+    initFlowbite();
+  }
 }

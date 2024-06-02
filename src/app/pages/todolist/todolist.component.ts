@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonBudgetComponent } from '../../components/button-budget/button-budget.component';
-
+import { IconsModule } from '../../icons/icons.module';
+import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
 interface Task {
   description: string;
   completed: boolean;
@@ -11,12 +12,13 @@ interface Task {
 @Component({
   selector: 'app-todolist',
   standalone: true,
-  imports: [CommonModule, FormsModule, ButtonBudgetComponent],
+  imports: [CommonModule, FormsModule, ButtonBudgetComponent,IconsModule,ErrorMessageComponent ],
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent {
-  newTaskDescription: string = '';
+  newTaskDescription: string = "";
+  errorMessage: string = ""
   pendingTasks: Task[] = [];
   completedTasks: Task[] = [];
 
@@ -25,6 +27,9 @@ export class TodolistComponent {
       const task: Task = { description: this.newTaskDescription, completed: false };
       this.pendingTasks.push(task);
       this.newTaskDescription = '';
+      this.errorMessage = ''
+    } else {
+      this.errorMessage = "*Inserte una tarea"
     }
   }
 

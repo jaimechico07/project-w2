@@ -27,6 +27,7 @@ export class TimerComponent {
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
+
     this.intervalId = setInterval(() => {
       this.tiempoTotal--;
       if (this.tiempoTotal <= 0) {
@@ -35,6 +36,7 @@ export class TimerComponent {
       this.tiempoRestante = this.formatTiempo(this.tiempoTotal);
     }, 1000);
   }
+  
 resetTimer() {
     clearInterval(this.intervalId);
     this.horas = 0;

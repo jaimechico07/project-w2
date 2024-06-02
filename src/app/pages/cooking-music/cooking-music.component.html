@@ -1,1 +1,26 @@
-<p>cooking-music works!</p>
+<div class="bg-gray-700 h-screen">
+  <h2 class="text-dynamic-h2 text-white">List Music</h2>
+  <div>
+    <input type="text" [(ngModel)]="cancion" />
+    <app-button-budget
+      [buttonText]="'Buscar'"
+      (buttonClick)="handleSearch()"
+    ></app-button-budget>
+    <app-error-message [message]="errorMessage"></app-error-message>
+  </div>
+  <div *ngIf="resultados.length > 0">
+    <h3>Resultados de la búsqueda:</h3>
+    <ul>
+      <li *ngFor="let resultado of resultados" class="text-3xl text-white">
+        <p>
+          {{ resultado.data.name }} -
+          {{ resultado.data.artists.items[0].profile.name }}
+        </p>
+        <img
+          [src]="resultado.data.albumOfTrack.coverArt.sources[0].url"
+          alt="Imagen de la canción"
+        />
+      </li>
+    </ul>
+  </div>
+</div>

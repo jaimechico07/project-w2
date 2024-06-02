@@ -3,22 +3,27 @@
 >
   <h1 class="text-dynamic-h1 font-fugaz-one text-center">To-Do List</h1>
   <div class="flex justify-center flex-col items-center mb-4">
-    <div class="flex items-center">
-      <input
-        [(ngModel)]="newTaskDescription"
-        class="border outline-none border-blue-800 px-2 rounded-xl py-1"
-        type="text"
-        placeholder="Agregar tarea..."
-      />
-
+    <div class="flex items-center gap-5">
+      <div class="relative">
+        <input
+          [(ngModel)]="newTaskDescription"
+          type="text"
+          id="floating_outlined"
+          class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer"
+          placeholder=" "
+        />
+        <label
+          for="floating_outlined"
+          class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#F2EADF] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+          >Agregue una tarea</label
+        >
+      </div>
       <app-button-budget
         [buttonText]="'Agregar'"
         (buttonClick)="addTask()"
       ></app-button-budget>
     </div>
-    <div *ngIf="newTaskDescription == ''">
-      <p class="text-red-500">*Inserte una tarea</p>
-    </div>
+    <app-error-message [message]="errorMessage"></app-error-message>
   </div>
   <div class="flex justify-center max-w-2xl w-full gap-5">
     <div class="w-full">
@@ -28,10 +33,10 @@
           *ngFor="let task of pendingTasks"
           class="flex items-center justify-between mb-4"
         >
-          <div>
+          <div class="flex items-center">
             <input
               type="checkbox"
-              class="mr-2"
+              class="mr-2 cursor-pointer"
               [checked]="task.completed"
               (change)="toggleCompleted(task)"
             />
@@ -43,12 +48,11 @@
               {{ task.description }}
             </span>
           </div>
-          <button
-            class="bg-black hover:text-black px-5 py-1 rounded-xl hover:bg-transparent text-white border-black border duration-300"
+          <i-tabler
+            name="trash"
+            class="text-red-500 font-medium cursor-pointer"
             (click)="removeTask(task)"
-          >
-            Eliminar
-          </button>
+          ></i-tabler>
         </li>
       </ul>
     </div>
@@ -59,13 +63,14 @@
           *ngFor="let task of completedTasks"
           class="flex items-center justify-between mb-4"
         >
-          <div>
+          <div class="flex items-center">
             <input
               type="checkbox"
-              class="mr-2"
+              class="mr-2 cursor-pointer"
               [checked]="task.completed"
               (change)="toggleCompleted(task)"
             />
+
             <span
               [class.line-through]="task.completed"
               class="text-gray-800 cursor-pointer"
@@ -74,12 +79,11 @@
               {{ task.description }}
             </span>
           </div>
-          <button
-            class="bg-black hover:text-black px-5 py-1 rounded-xl hover:bg-transparent text-white border-black border duration-300"
+          <i-tabler
+            name="trash"
+            class="text-red-500 font-medium cursor-pointer"
             (click)="removeTask(task)"
-          >
-            Eliminar
-          </button>
+          ></i-tabler>
         </li>
       </ul>
     </div>

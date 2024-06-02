@@ -2,84 +2,148 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';//formulario
+import { ButtonBudgetComponent } from '../../components/button-budget/button-budget.component';
 
+import { IconsModule } from '../../icons/icons.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule],
+  imports: [RouterOutlet, CommonModule, FormsModule,ButtonBudgetComponent,  IconsModule ],
   templateUrl: './mass-calculator.component.html',
   styleUrl: './mass-calculator.component.css'
 })
 export class MassCalculatorComponent {
 
-  public mostrarL: boolean = false;
-  public mensaje: string = "MOSTRAR";
 
-  public opcionSeleccionada: string = '';
+  opcionSeleccionada: string = '';
 
-  public valor: string = '';
-  public valorNum: number = 0;
+  valor: number = 0;
+  valorNum: number = 0;
 
-  public litros: number = 0;
-  public miliL: number = 0;
-  public tazas: number = 0;
+  litros: number = 0;
+  miliL: number = 0;
+  tazas: number = 0;
+
+  cantidad: number = 0;
+  unidadOrigen: string = '';
+  unidadDestino: string = '';
+  resultado: number | null = 0;
 
 
   mostrarTexto() {
 
-    this.valorNum = parseFloat(this.valor)
-
-    console.log("hola desde mostrar texto esta es la ", this.opcionSeleccionada)
-
     switch (this.opcionSeleccionada) {
-
       case 'option1':
-        this.mostrarMedidas();
-        this.litros = this.valorNum;
-        this.miliL = this.valorNum * 1000;
-        this.tazas = this.valorNum * 4, 22675;
+        this.litros = this.valor;
+        this.miliL = this.valor * 1000;
+        this.tazas = this.valor * 4.22675; // Corregido
         break;
       case 'option2':
-        this.mostrarMedidas();
-        this.litros = this.valorNum / 1000;
-        this.miliL = this.valorNum;
-        this.tazas = this.valorNum * 0.00422675;
+        this.litros = this.valor / 1000;
+        this.miliL = this.valor;
+        this.tazas = this.valor * 0.00422675;
         break;
-
       case 'option3':
-        this.mostrarMedidas();
-        this.litros = this.valorNum * 0.236588;
-        this.miliL = this.valorNum * 236.588;
-        this.tazas = this.valorNum;
+        this.litros = this.valor * 0.236588;
+        this.miliL = this.valor * 236.588;
+        this.tazas = this.valor;
         break;
-
       default:
         break;
     }
-
   }
 
-  mostrarMedidas() {
-    if (this.mostrarL) {
-      this.mostrarL = false;
-    } else {
-      this.mostrarL = true;
+
+  convertirUnidades(cantidad: number, unidadOrigen: string, unidadDestino: string): number {
+    switch (unidadOrigen) {
+      case 'taza':
+        return this.convertirDesdeTaza(cantidad, unidadDestino);
+      case 'onzas':
+        return this.convertirDesdeOnzas(cantidad, unidadDestino);
+      case 'cucharadas':
+        return this.convertirDesdeCucharadas(cantidad, unidadDestino);
+      case 'cucharaditas':
+        return this.convertirDesdeCucharaditas(cantidad, unidadDestino);
+      case 'gramos':
+        return this.convertirDesdeGramos(cantidad, unidadDestino);
+      default:
+        return NaN; // Retornar NaN si la unidad de origen no es válida
     }
   }
 
-  cambiarTexto() {
-    if (this.mensaje === "MOSTRAR") {
-      this.mensaje = "OCULTAR";
-    } else {
-      this.mensaje = "MOSTRAR";
+  convertirDesdeTaza(cantidad: number, unidadDestino: string): number {
+    switch (unidadDestino) {
+      case 'onzas':
+        return this.resultado = cantidad * 8;
+      case 'cucharadas':
+        return this.resultado = cantidad * 16;
+      case 'cucharaditas':
+        return this.resultado = cantidad * 48;
+      case 'gramos':
+        return this.resultado = cantidad * 236.588;
+      default:
+        return this.resultado = cantidad;
     }
   }
-  cambiarDatos() {
 
-    this.litros = 10;
-    this.miliL = 15;
-    this.tazas = 20;
+  convertirDesdeGramos(cantidad: number, unidadDestino: string): number {
+    switch (unidadDestino) {
+      case 'taza':
+        return this.resultado = cantidad / 236.588;
+      case 'onzas':
+        return this.resultado = cantidad / 28.3495;
+      case 'cucharadas':
+        return this.resultado = cantidad / 14.7868;
+      case 'cucharaditas':
+        return this.resultado = cantidad / 4.92892;
+      default:
+        return this.resultado = cantidad;
+    }
   }
 
+  convertirDesdeOnzas(cantidad: number, unidadDestino: string): number {
+    switch (unidadDestino) {
+      case 'taza':
+        return this.resultado = cantidad / 8;
+      case 'cucharadas':
+        return this.resultado = cantidad * 2;
+      case 'cucharaditas':
+        return this.resultado = cantidad * 6;
+      case 'gramos':
+        return this.resultado = cantidad * 28.3495;
+      default:
+        return this.resultado = cantidad;
+    }
+  }
+
+  convertirDesdeCucharadas(cantidad: number, unidadDestino: string): number {
+    switch (unidadDestino) {
+      case 'taza':
+        return this.resultado = cantidad / 16;
+      case 'onzas':
+        return this.resultado = cantidad / 2;
+      case 'cucharaditas':
+        return this.resultado = cantidad * 3;
+      case 'gramos':
+        return this.resultado = cantidad * 14.7868;
+      default:
+        return this.resultado = cantidad;
+    }
+  }
+
+  convertirDesdeCucharaditas(cantidad: number, unidadDestino: string): number {
+    switch (unidadDestino) {
+      case 'taza':
+        return this.resultado = cantidad / 48;
+      case 'onzas':
+        return this.resultado = cantidad / 6;
+      case 'cucharadas':
+        return this.resultado = cantidad / 3;
+      case 'gramos':
+        return this.resultado = cantidad * 4.92892;
+      default:
+        return this.resultado = cantidad;
+    }
+  }
 }

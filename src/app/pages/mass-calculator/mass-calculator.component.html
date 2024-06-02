@@ -1,43 +1,72 @@
 <div class="container mx-auto">
-  <h1 class="text-dynamic-h1 font-fugaz-one text-center mt-10">
+  <h1 class="text-dynamic-h1 font-fugaz-one text-center mt-10 mb-10">
     Ver posibles medidas
   </h1>
-
-  <div class="flex justify-center flex-col items-center">
-    <div class="mt-4">
-      <input
-        [(ngModel)]="valor"
-        type="text"
-        placeholder="numero"
-        style="width: 100px"
-        value="0"
-        class="border border-blue-800 px-2 rounded-xl py-1 mr-6"
-      />
-
-      <select
-        [(ngModel)]="opcionSeleccionada"
-        class="border px-2 py-1 mr-6 rounded-xl"
-      >
-        <option value="option1">Litros</option>
-        <option value="option2">Mililitros</option>
-        <option value="option3">Tazas</option>
-      </select>
+  <div class="grid grid-cols-1 gap-5 place-items-center">
+    <div class="grid grid-row-3 gap-5 place-items-center">
+      <div class="flex gap-5">
+        <input
+          [(ngModel)]="valor"
+          type="number"
+          class="rounded-lg outline-none"
+        />
+        <select
+          [(ngModel)]="opcionSeleccionada"
+          class="rounded-lg outline-none"
+        >
+          <option value="option1">Litros</option>
+          <option value="option2">Mililitros</option>
+          <option value="option3">Tazas</option>
+        </select>
+      </div>
+      <div>
+        <app-button-budget
+          [buttonText]="'Mostrar'"
+          (buttonClick)="mostrarTexto()"
+        ></app-button-budget>
+      </div>
+      <div class="grid place-items-center">
+        <h2 class="text-dynamic-h2 font-comfortaa">Litros = {{ litros }} L</h2>
+        <h2 class="text-dynamic-h2 font-comfortaa">
+          Mililitros = {{ miliL }} ml
+        </h2>
+        <h2 class="text-dynamic-h2 font-comfortaa">Tazas = {{ tazas }} Tz</h2>
+      </div>
     </div>
-    <div>
-      <br />
-      <button
-        (click)="mostrarTexto()"
-        (click)="cambiarTexto()"
-        class="bg-black hover:text-black px-5 py-1 rounded-xl hover:bg-white text-white border-black border duration-300"
-      >
-        {{ mensaje }}
-      </button>
-    </div>
-  </div>
 
-  <div class="grid place-items-center mt-4" *ngIf="mostrarL" width="500px">
-    <h2 class="text-dynamic-h2 font-comfortaa">Litros = {{ litros }} L</h2>
-    <h2 class="text-dynamic-h2 font-comfortaa">Mililitros = {{ miliL }} ml</h2>
-    <h2 class="text-dynamic-h2 font-comfortaa">Tazas = {{ tazas }} Tz</h2>
+    <div class="grid grid-row-3 place-items-center gap-5">
+      <div class="flex gap-5 items-center">
+        <input
+          type="number"
+          class="rounded-lg outline-none"
+          [(ngModel)]="cantidad"
+        />
+        <select class="rounded-lg outline-none" [(ngModel)]="unidadOrigen">
+          <option value="taza">Taza</option>
+          <option value="onzas">Onzas</option>
+          <option value="cucharadas">Cucharadas</option>
+          <option value="cucharaditas">Cucharaditas</option>
+          <option value="gramos">Gramos</option>
+        </select>
+        <i-tabler
+          name="direction-sign"
+          class="text-black font-medium"
+        ></i-tabler>
+        <select class="rounded-lg outline-none" [(ngModel)]="unidadDestino">
+          <option value="taza">Taza</option>
+          <option value="onzas">Onzas</option>
+          <option value="cucharadas">Cucharadas</option>
+          <option value="cucharaditas">Cucharaditas</option>
+          <option value="gramos">Gramos</option>
+        </select>
+      </div>
+      <app-button-budget
+        [buttonText]="'Convertir'"
+        (buttonClick)="convertirUnidades(cantidad, unidadOrigen, unidadDestino)"
+      ></app-button-budget>
+      <div class="text-dynamic-h2" *ngIf="resultado !== null">
+        <p>El resultado es: {{ resultado }} {{ unidadDestino }}</p>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ButtonBudgetComponent } from './button-budget.component';
+import { ErrorMessageComponent } from './error-message.component';
 
-describe('ButtonBudgetComponent', () => {
-  let component: ButtonBudgetComponent;
-  let fixture: ComponentFixture<ButtonBudgetComponent>;
+describe('ErrorMessageComponent', () => {
+  let component: ErrorMessageComponent;
+  let fixture: ComponentFixture<ErrorMessageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonBudgetComponent]
+      imports: [ErrorMessageComponent]
     })
     .compileComponents();
-
-    fixture = TestBed.createComponent(ButtonBudgetComponent);
+    
+    fixture = TestBed.createComponent(ErrorMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,5 +21,3 @@ describe('ButtonBudgetComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-
