@@ -4,6 +4,10 @@ module.exports = {
 
   theme: {
     extend: {
+      height: {
+        'calc-screen-playList': 'calc(100vh - 80px)',
+        'calc-screen-song': 'calc(100vh - 150px)',
+      },
       colors: {
         "brown-primary": "#E49084",
         "green-primary": "#7EAF94",

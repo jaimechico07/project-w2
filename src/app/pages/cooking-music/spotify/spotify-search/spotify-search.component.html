@@ -1,0 +1,62 @@
+<div class="mt-2">
+  <h2 class="text-2xl font-bold mb-4 text-white font-comfortaa">
+    Buscar Canciones
+  </h2>
+  <div class="relative">
+    <div
+      class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+    >
+      <i-tabler
+        name="search"
+        class="font-medium cursor-pointer text-gray-500 dark:text-gray-400"
+      ></i-tabler>
+    </div>
+    <input
+      type="text"
+      [(ngModel)]="query"
+      (keydown.enter)="search()"
+      placeholder="Buscar"
+      class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      required
+    />
+    <button
+      (click)="search()"
+      class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Search
+    </button>
+  </div>
+
+  <div
+    *ngIf="tracks.length > 0"
+    class="overflow-y-scroll mt-4 h-calc-screen-song"
+  >
+    <ul
+      class="grid w-full grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] mx-auto gap-2 p-2 place-items-center"
+    >
+      <li
+        *ngFor="let track of tracks, let i = index"
+        class="flex flex-col w-full justify-between p-2 bg-gray-100 rounded-lg shadow-lg "
+      >
+        <div class="flex gap-2 items-center justify-center">
+          <img
+            [src]="track.album.images[0]?.url"
+            alt="Album Image"
+            class="w-full h-32 object-cover rounded-lg"
+          />
+          <div>
+            <div>
+              <strong>{{ track.name }}</strong> by {{ track.artists[0].name }}
+            </div>
+          </div>
+        </div>
+        <audio #audioPlayer controls
+        (play)="playTrack(audioPlayer, i)"
+        (ended)="playNextTrack()">>
+          <source [src]="track.preview_url" type="audio/mp3" />
+          Your browser does not support the audio element.
+        </audio>
+      </li>
+    </ul>
+  </div>
+</div>

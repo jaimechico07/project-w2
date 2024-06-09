@@ -1,4 +1,4 @@
-<div class="absolute bottom-12 right-12">
+<div class="fixed bottom-12 right-12">
   <div
     class="rounded-full bg-black p-4 flex items-center cursor-pointer relative z-[10]"
     (click)="toggleVisibility()"
@@ -15,7 +15,7 @@
   >
     <a
       *ngFor="let circle of navigationItems; let i = index"
-      [routerLink]="circle.link"
+      (click)="navigate(circle)"
       class="absolute h-6 w-6 rounded-full flex items-center cursor-pointer"
       [style.transform]="'rotate(' + 45 * i + 'deg) translateY(-50px)'"
       [style.background]="circle.color"

@@ -35,6 +35,10 @@ Este proyecto trata de una plataforma diseñada para ayudarte a organizar y mejo
 
 ## Librerias
 - jspdf: Una libreria para generar PDFs en JavaScript
+- Flowbite: Biblioteca de código abierto de más de 600 componentes, secciones y páginas de UI creadas con las clases de utilidad de Tailwind CSS y diseñadas en Figma.
+
+## Api Reference
+- Spotify.forDevelopers: https://developer.spotify.com/
 
 ## descargar proyecto en :
 

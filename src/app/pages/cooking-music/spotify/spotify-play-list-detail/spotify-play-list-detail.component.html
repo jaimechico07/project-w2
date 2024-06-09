@@ -1,0 +1,27 @@
+<div class=" p-4 bg-[#212121]">
+  <div class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] mx-auto gap-6 place-items-center mb-40">
+    <div *ngFor="let detail of playDetail, let i = index" class="w-full overflow-hidden">
+      <div class=" p-6 bg-gray-100 rounded-lg shadow-lg">
+        <div class="flex items-center mb-4">
+          <div class=" flex-shrink-0">
+            <img class="max-w-36 rounded-md" [src]="detail.track.album.images[0].url" alt="Album Art" />
+          </div>
+          <div class="ml-4">
+            <h4 class="text-lg font-semibold text-gray-900">{{ detail.track.name }}</h4>
+            <p class="text-sm text-gray-600">{{ detail.track.artists[0].name }}</p>
+          </div>
+        </div>
+        <audio #audioPlayer controls class="w-full rounded"
+        (play)="playTrack(audioPlayer, i)"
+        (ended)="playNextTrack()">
+    <source [src]="detail.track.preview_url" type="audio/mp3" />
+    Your browser does not support the audio element.
+  </audio>
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="!playDetail">
+    <p>Loading play details...</p>
+  </div>
+</div>

@@ -8,9 +8,12 @@ import { CookingMusicComponent } from './pages/cooking-music/cooking-music.compo
 import { CalculatorComponent } from './pages/calculator/calculator.component';
 import { TodolistComponent } from './pages/todolist/todolist.component';
 import { HourComponent } from './pages/hour/hour.component';
+// import { SpotifyAlbumDetailComponent } from './pages/cooking-music/spotify/spotify-album-detail/spotify-album-detail.component';
+import { SpotifyPlayListDetailComponent } from './pages/cooking-music/spotify/spotify-play-list-detail/spotify-play-list-detail.component';
 
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MassCalculatorComponent } from './pages/mass-calculator/mass-calculator.component';
+import { CallbackComponent } from '../service/callback.component';
 
 export const routes: Routes = [
   { path:"", component:HomeComponent},
@@ -23,6 +26,9 @@ export const routes: Routes = [
   { path: 'calculator', component: CalculatorComponent },
   { path: 'hour', component: HourComponent},
   { path: 'todolist', component: TodolistComponent  },
+  { path: 'callback', component: CallbackComponent },
+  { path: 'spotifyPlayListDetail/:id', component: SpotifyPlayListDetailComponent},
+  // { path: 'spotifyAlbumDetail/:id', component: SpotifyAlbumDetailComponent },
   {
     path: 'not-found', component: NotFoundComponent
   },
