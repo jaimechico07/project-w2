@@ -45,17 +45,8 @@ export class ButtonFloatingComponent {
     this.showCircles = !this.showCircles;
   }
 
-  generateArray(n: number): any[] {
-    return Array(n);
-  }
-
   setHoveredItem(item: NavigationItem): void {
     this.hoveredItem = item;
-  }
-
-
-  getCurrentUrl(): string {
-    return this.router.url;
   }
 
   updateButtonTexts() {

@@ -20,6 +20,7 @@ export class SpotifyService {
     const token = await this.getAccessToken();
 
     const response = await fetch(`https://api.spotify.com/v1/${endpoint}`, {
+      //Requerido por spotify para obtener acceso a los recursos
       headers: {
         'Authorization': 'Bearer ' + token
       }
@@ -34,9 +35,6 @@ export class SpotifyService {
     return response.json();
   }
 
-  // public async getPlaylist(playlistId: string): Promise<any> {
-  //   return this.fetchSpotifyData(`playlists/${playlistId}`);
-  // }
 
   public async searchTracks(query: string): Promise<any> {
     return this.fetchSpotifyData(`search?q=${query}&type=track`);
@@ -52,7 +50,7 @@ export class SpotifyService {
   }
 
   //Para poder obtener los detalles de los album
-  public async getAlbum(albumId: string): Promise<any> {
-    return this.fetchSpotifyData(`albums/${albumId}/tracks`);
-  }
+  // public async getAlbum(albumId: string): Promise<any> {
+  //   return this.fetchSpotifyData(`albums/${albumId}/tracks`);
+  // }
 }

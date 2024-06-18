@@ -43,11 +43,14 @@ export class SpotifyPlayListDetailComponent implements OnInit{
 
 
   playTrack(currentAudio: HTMLAudioElement, index: number) {
+    // Recorro todos los elementos de audio.
     this.audioPlayers.forEach((audioElement, i) => {
+       // Pausa el audio del que no se quiere reproducir.
       if (audioElement.nativeElement !== currentAudio) {
         audioElement.nativeElement.pause();
       }
     });
+     // Se actualiza el estado de reproducción del audio actual.
     this.currentAudioIndex = index;
   }
 
