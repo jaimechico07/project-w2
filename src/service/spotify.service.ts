@@ -4,6 +4,7 @@ import { AuthService } from '../service/auth.services';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SpotifyService {
 
   constructor(private authService: AuthService) { }

@@ -11,6 +11,7 @@ interface NavigationItem {
   originalText: string;
   link: string;
 }
+
 @Component({
   selector: 'app-button-floating',
   standalone: true,

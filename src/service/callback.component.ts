@@ -19,17 +19,17 @@ export class CallbackComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       const code = params['code'];
       if (code) {
-        console.log('Authorization code:', code); // Añade esto
+        console.log('Authorization code:', code);
         this.authService.getAccessToken(code).then(() => {
-          console.log('Token obtained successfully'); // Añade esto
-          this.router.navigate(['/cookingMusic']);
+          console.log('Token obtained successfully');
+          this.router.navigate(['/']);
         }).catch(error => {
           console.error('Error obtaining access token', error);
-          this.router.navigate(['/']);
+          this.router.navigate(['/not-found']);
         });
       } else {
         console.error('Authorization code not found');
-        this.router.navigate(['/']);
+        this.router.navigate(['/not-found']);
       }
     });
   }
