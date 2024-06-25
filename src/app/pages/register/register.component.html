@@ -1,0 +1,73 @@
+<section class="w-full flex justify-center items-center h-screen font-comfortaa">
+<div class="max-w-[450px] h-auto justify-center flex flex-col gap-5  bg-white/50 shadow-sm w-full rounded-lg p-4 md:p-20">
+  <h2 class="text-center text-dynamic-h2">Registrar</h2>
+  <form (submit)="onSubmit()" class="flex flex-col gap-5">
+    <div class="relative w-full">
+      <input
+        id="displayName"
+        type="text"
+        [(ngModel)]="displayName"
+        name="displayName"
+        class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer"
+        placeholder=" "
+        required
+      />
+      <label
+        class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#F9F5EF] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+        for="displayName"
+        >Ingresa un nombre</label
+      >
+    </div>
+    <div class="relative w-full">
+      <input
+        id="email"
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer"
+        placeholder=" "
+        required
+      />
+      <label
+        class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#F9F5EF] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+        for="email"
+        >Email:</label
+      >
+    </div>
+    <div class="relative">
+      <input
+        id="password"
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer"
+        placeholder=" "
+        required
+      />
+      <label
+        class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#F9F5EF] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+        for="password"
+        >Password:</label
+      >
+    </div>
+    <div class="relative">
+      <input
+        id="photo"
+        type="file"
+        (change)="onFileSelected($event)"
+        name="photo"
+        class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer"
+        placeholder=" "
+        required
+      />
+      <label
+        class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#F9F5EF] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+        for="photoURL"
+        >Ingresa una Imagen</label
+      >
+    </div>
+    <button type="submit" class="py-2 px-8 bg-transparent text-black rounded-full border border-black hover:bg-black hover:text-white duration-500">Crear cuenta</button>
+    <a routerLink="/login" class="text-center text-red-600 font-bold">cancelar</a>
+  </form>
+</div>
+</section>

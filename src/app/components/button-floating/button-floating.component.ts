@@ -42,6 +42,10 @@ export class ButtonFloatingComponent {
       });
     }
 
+    ngOnInit() {
+      this.updateButtonTexts();
+    }
+
   toggleVisibility() {
     this.showCircles = !this.showCircles;
   }
@@ -63,7 +67,7 @@ export class ButtonFloatingComponent {
 
   navigate(item: NavigationItem) {
     if (this.router.url.startsWith(item.link)) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     } else {
       this.router.navigate([item.link]);
     }

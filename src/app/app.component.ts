@@ -5,7 +5,8 @@ import { RouterOutlet } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ButtonFloatingComponent } from './components/button-floating/button-floating.component';
 import { initFlowbite } from 'flowbite';
-
+import { Router, Event, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 
 @Component({
@@ -18,13 +19,25 @@ import { initFlowbite } from 'flowbite';
 
 export class AppComponent implements OnInit {
   title = 'my-project-w2';
+  showButtonFloating: boolean = true;
+  private hiddenRoutes: string[] = ['/login', '/register', '/home'];
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) {
+    this.router.events.pipe(
+      filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.checkRoute(event.urlAfterRedirects);
+    });
+  }
   ngOnInit(): void {
     initFlowbite();
     if (!this.authService.getTokenFromLocalStorage()) {
       this.authService.login();
     }
+  }
+
+  private checkRoute(url: string) {
+    this.showButtonFloating = !this.hiddenRoutes.some(route => url.includes(route));
   }
 
 }

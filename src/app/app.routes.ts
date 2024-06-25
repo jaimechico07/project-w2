@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes} from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { BudgetComponent } from './pages/budget/budget.component';
 import { BudgetRouterComponent } from './pages/budget-router/budget-router.component';
@@ -14,8 +14,14 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MassCalculatorComponent } from './pages/mass-calculator/mass-calculator.component';
 import { CallbackComponent } from '../service/callback.component';
 
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+
 export const routes: Routes = [
-  { path:"", component:HomeComponent},
+  { path: '', redirectTo:"login", pathMatch:'full'},
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'BudgetComponent', component: BudgetComponent },
   { path: 'BudgetRouterComponent/:monto', component: BudgetRouterComponent},
   { path: 'Masscalculator', component: MassCalculatorComponent },

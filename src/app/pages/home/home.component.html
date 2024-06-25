@@ -11,7 +11,7 @@
     >
       <img
         src="../../../assets/Presupuesto.png"
-        class="bg-yellow-primary h-full rounded-[40px] m-auto max-w-[400px] lg:w-full"
+        class="bg-green-primary h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
       />
       <div
         class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -23,16 +23,16 @@
       routerLink="/cookingMusic"
       class="col-start-1 col-end-2 row-start-3 row-end-5"
     >
-    <img
-    src="../../../assets/musiccell.png"
-    class="bg-green-primary h-full rounded-[40px] lg:p-4 max-w-[400px] lg:w-full m-auto object-cover"
-  />
+      <img
+        src="../../../assets/musiccell.png"
+        class="bg-green-primary  h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
+      />
     </a>
 
     <a routerLink="/Masscalculator" class="relative group">
       <img
         src="../../../assets/galletaaa.webp"
-        class="bg-pink-primary h-full rounded-[40px] w-full p-4 object-contain"
+        class="bg-pink-primary h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
       />
       <div
         class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -60,7 +60,7 @@
     >
       <img
         src="../../../assets/recetario.jpg"
-        class="h-full w-full rounded-[40px] max-w-[400px] lg:w-full m-auto"
+        class="h-full rounded-[40px] max-w-[400px] lg:w-full m-auto"
       />
     </a>
     <a
@@ -69,7 +69,7 @@
     >
       <img
         src="../../../assets/timer.png"
-        class="bg-yellow-primary h-full rounded-[40px] m-auto max-w-[400px] lg:w-full"
+        class="bg-yellow-primary h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
       />
       <div
         class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -92,4 +92,51 @@
       />
     </figure>
   </div>
+
+  <!-- ----------- -->
+  <div class="absolute -top-2 -left-2 cursor-pointer" (click)="toggleProfileVisibility()">
+    <div class="p-4 bg-blue-400 rounded-br-full w-fit">
+      <i-tabler
+        *ngIf="!isProfileVisible"
+        name="user-plus"
+        class="cursor-pointer text-white font-bold"
+      ></i-tabler>
+      <i-tabler
+        *ngIf="isProfileVisible"
+        name="user-minus"
+        class="cursor-pointer text-white font-bold"
+      ></i-tabler>
+    </div>
+
+    <div
+      [ngClass]="{ hidden: !isProfileVisible, block: isProfileVisible }"
+      class="mt-2 ml-4 bg-white p-4 shadow rounded-lg font-comfortaa "
+    >
+      <div *ngIf="userEmail || userDisplayName" class="flex flex-col justify-center items-center">
+        <p>Bienvenido!</p>
+        <h2> {{ userDisplayName || userEmail }}</h2>
+        <div *ngIf="userPhotoURL">
+          <img [src]="userPhotoURL" alt="Foto de perfil" class="rounded-full w-32 h-32" />
+        </div>
+        <div *ngIf="!userPhotoURL">
+          <p>Imagen de perfil no disponible.</p>
+        </div>
+      </div>
+      <div *ngIf="!userEmail && !userDisplayName">
+        <p>Inicia sesión para ver tu perfil.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ------------ -->
+    <div class="absolute lg:left-0 lg:bottom-0 lg:right-auto lg:top-auto top-0 right-0 cursor-pointer " (click)="close()">
+      <div class="p-6 bg-red-400 lg:rounded-tr-full rounded-bl-full lg:rounded-bl-none w-fit relative">
+        <i-tabler
+        name="user-x"
+        class="cursor-pointer text-white font-bold absolute lg:bottom-2 lg:left-2 lg:top-auto lg:right-auto top-2 right-2"
+      ></i-tabler>
+      </div>
+    </div>
+
 </div>
