@@ -1,0 +1,27 @@
+<section class="max-w-7xl py-16 md:py-10 mx-auto font-comfortaa">
+  <div class="grid grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))] place-items-center gap-4">
+    <div
+      *ngFor="let detail of mealListCategory; let i = index"
+      [routerLink]="['/mealDetail', detail.idMeal]"
+      class="w-full bg-white rounded-3xl cursor-pointer"
+    >
+      <div class="flex items-center gap-4">
+        <figure>
+          <img
+            [src]="detail.strMealThumb"
+            [alt]="detail.strMeal"
+            class="rounded-l-3xl max-w-40"
+          />
+        </figure>
+        <div>
+          <h2 class="text-dynamic-text text-wrap">{{ detail.strMeal }}</h2>
+          <p
+            class="text-dynamic-text px-4 py-1 bg-brown-secondary w-fit rounded-full text-white"
+          >
+            {{ strCategory }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

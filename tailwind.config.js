@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,ts}", "./node_modules/flowbite/**/*.js"],
+  content: ["./src/**/**/*.{html,ts}", "./node_modules/flowbite/**/*.js"],
 
   theme: {
     extend: {
@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         "brown-primary": "#E49084",
+        "brown-secondary":"#845750",
         "green-primary": "#7EAF94",
         "yellow-primary": "#DEAF5F",
         "blue-primary": "#2D467A",
@@ -28,7 +29,11 @@ module.exports = {
         "dynamic-text": "clamp(0.75rem, 0.7012rem + 0.2439vw, 1rem)",
       },
       backgroundImage: {
-        "fondo-image": "url('/src/assets/fondo.webp')",
+        "fondo-image": "url('/assets/fondo.webp')",
+        "fondo-cocina": "url('/assets/fondococina.jpg')",
+      },
+      screens: {
+        "3xl": "2000px",
       },
     },
   },

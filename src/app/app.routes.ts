@@ -12,10 +12,13 @@ import { SpotifyPlayListDetailComponent } from './pages/cooking-music/spotify/sp
 
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MassCalculatorComponent } from './pages/mass-calculator/mass-calculator.component';
-import { CallbackComponent } from '../service/callback.component';
+import { CallbackComponent } from '../service/spotify/callback.component';
 
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+
+import { MealDetailComponent } from './pages/recipes/meal-detail/meal-detail.component';
+import { MealListCategoriesComponent } from './pages/recipes/meal-list-categories/meal-list-categories.component';
 
 export const routes: Routes = [
   { path: '', redirectTo:"login", pathMatch:'full'},
@@ -33,6 +36,8 @@ export const routes: Routes = [
   { path: 'todolist', component: TodolistComponent  },
   { path: 'callback', component: CallbackComponent },
   { path: 'spotifyPlayListDetail/:id', component: SpotifyPlayListDetailComponent},
+  { path: 'mealDetail/:id', component: MealDetailComponent},
+  { path: 'mealListCategories/:strCategory', component:MealListCategoriesComponent},
   {
     path: 'not-found', component: NotFoundComponent
   },

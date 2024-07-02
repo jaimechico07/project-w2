@@ -16,8 +16,8 @@
     <a
       *ngFor="let circle of navigationItems; let i = index"
       (click)="navigate(circle)"
-      class="absolute h-7 w-7 rounded-full flex items-center cursor-pointer"
-      [style.transform]="'rotate(' + 45 * i + 'deg) translateY(-50px)'"
+      class="absolute h-8 w-8 justify-center rounded-full flex items-center cursor-pointer"
+      [style.transform]="'rotate(' + 52 * i + 'deg) translateY(-50px)'"
       [style.background]="circle.color"
       (mouseover)="setHoveredItem(circle)"
       (mouseout)="hoveredItem = null"

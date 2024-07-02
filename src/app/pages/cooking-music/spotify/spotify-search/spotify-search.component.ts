@@ -1,5 +1,5 @@
 import { Component,  ViewChildren, QueryList, ElementRef} from '@angular/core';
-import { SpotifyService } from '../../../../../service/spotify.service';
+import { SpotifyService } from '../../../../../service/spotify/spotify.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconsModule } from '../../../../icons/icons.module';

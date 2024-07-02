@@ -1,0 +1,63 @@
+<section
+  class=" mb-10 md:mb-16 font-comfortaa"
+>
+  <div class="w-full bg-fondo-cocina bg-cover bg-center h-[400px] bg-no-repeat flex justify-center items-center before:bg-white/30 before:backdrop-blur-sm before:absolute before:w-full before:h-full relative">
+    <div class="max-w-[500px] w-full px-2 relative">
+      <h1
+        class="text-2xl font-bold mb-6 text-dynamic-h1 text-black text-center"
+      >
+        Buscar Receta
+      </h1>
+      <div class="relative">
+        <div
+          class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+        >
+          <i-tabler
+            name="search"
+            class="font-medium cursor-pointer text-gray-500 dark:text-gray-400"
+          ></i-tabler>
+        </div>
+        <input
+          type="text"
+          placeholder="Buscar Receta"
+          (keydown.enter)="search()"
+          [(ngModel)]="mealName"
+          class="block w-full  p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-black focus:border-black dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-black dark:focus:border-black"
+          required
+        />
+        <button
+          class="text-white hover:text-brown-secondary absolute border duration-300 hover:border-brown-secondary end-2.5 bottom-2.5 bg-brown-secondary hover:bg-white font-medium rounded-lg text-sm leading-none px-4 py-2"
+          (click)="search()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="meals.length > 0" class="max-w-7xl mx-auto h-auto mt-8 md:mt-16">
+    <div class="flex items-center gap-3 mb-8">
+      <h2 class="text-dynamic-h1 font-bold  w-fit text-black after:content-[''] relative after:rounded-full after:absolute after:bottom-0 after:right-0 after:w-14 after:h-[6px] after:bg-brown-secondary">Recetas</h2>
+      <i-tabler
+      name="eraser"
+      class="text-black font-medium cursor-pointer duration-300 hover:text-red-500"
+      (click)="clear()"
+    ></i-tabler>
+    </div>    <div class="flex flex-wrap justify-center gap-4 px-20  scroll-container max-h-[400px] ">
+    <div *ngFor="let meal of meals" class="w-fit cursor-pointer group"
+    [routerLink]="['/mealDetail', meal.idMeal]">
+      <figure class="overflow-hidden rounded-2xl relative">
+        <img
+          [src]="meal.strMealThumb"
+          [alt]="meal.strMeal"
+          class="max-w-48 max-h-48 sm:w-48 sm:h-48 rounded-2xl mb-3 duration-300 ease-in-out group-hover:scale-110"
+        />
+        <span class="absolute top-2 right-2 text-sm text-brown-secondary px-3 py-1 rounded-full  bg-white ">{{meal.strCategory}}</span>
+      </figure>
+      <p class="text-center text-gray-500 md:text-[14px] text-[12px]">{{meal.strArea}}</p>
+      <p class="break-words font-bold text-center max-w-48 text-dynamic-text">
+        {{ meal.strMeal }}
+      </p>
+    </div>
+  </div>
+  </div>
+</section>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from '../service/auth.services';
+import { AuthService } from '../spotify/auth.services';
 
 @Injectable({
   providedIn: 'root'
@@ -50,8 +50,4 @@ export class SpotifyService {
     return this.fetchSpotifyData(`playlists/${playlistId}/tracks`);
   }
 
-  //Para poder obtener los detalles de los album
-  // public async getAlbum(albumId: string): Promise<any> {
-  //   return this.fetchSpotifyData(`albums/${albumId}/tracks`);
-  // }
 }

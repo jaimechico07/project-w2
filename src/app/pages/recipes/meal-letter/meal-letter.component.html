@@ -1,0 +1,60 @@
+<section class="max-w-7xl mx-auto mb-10 md:mb-16 font-comfortaa">
+  <div class="flex items-center gap-3 mb-8">
+    <h2
+      class="text-dynamic-h1 font-bold w-fit text-black after:content-[''] relative after:rounded-full after:absolute after:bottom-0 after:right-0 after:w-14 after:h-[6px] after:bg-brown-secondary"
+    >
+      Buscar por letra
+    </h2>
+    <i-tabler
+      name="eraser"
+      class="text-black font-medium cursor-pointer duration-300 hover:text-red-500"
+      (click)="clear()"
+    ></i-tabler>
+  </div>
+  <div class="flex flex-wrap justify-center gap-3 mb-6 md:mb-10">
+    <button
+      *ngFor="let letter of alphabet"
+      (click)="searchLetter(letter)"
+      [ngClass]="{
+        'bg-brown-secondary text-white': letter === selectedLetter,
+        'bg-white text-black': letter !== selectedLetter
+      }"
+      class="px-4 py-2 border border-gray-300 rounded transition-colors duration-300"
+    >
+      {{ letter }}
+    </button>
+  </div>
+
+  <div class="">
+    <div
+      *ngIf="meals?.length"
+      class="flex flex-wrap justify-center gap-4 px-20 scroll-container max-h-[450px]"
+    >
+      <div
+        *ngFor="let meal of meals"
+        class="w-fit cursor-pointer relative"
+        [routerLink]="['/mealDetail', meal.idMeal]"
+      >
+        <figure>
+          <img
+            [src]="meal.strMealThumb"
+            alt="{{ meal.strMeal }}"
+            class="max-w-48 max-h-48 sm:w-48 sm:h-48 rounded-2xl mb-3 duration-300 ease-in-out"
+          />
+          <caption
+            class="absolute bottom-3 bg-black/50 w-full h-auto p-2 rounded-b-2xl"
+          >
+            <p
+              class="break-words text-white font-bold text-center max-w-48 text-dynamic-text"
+            >
+              {{ meal.strMeal }}
+            </p>
+          </caption>
+        </figure>
+      </div>
+    </div>
+    <div *ngIf="!meals?.length">
+      <p>Seleccione una letra</p>
+    </div>
+  </div>
+</section>

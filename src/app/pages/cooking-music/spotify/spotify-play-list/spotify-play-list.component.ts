@@ -1,5 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { SpotifyService } from '../../../../../service/spotify.service';
+import { SpotifyService } from '../../../../../service/spotify/spotify.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

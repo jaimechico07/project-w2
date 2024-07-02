@@ -1,6 +1,6 @@
 import { Component, OnInit , ViewChildren, QueryList, ElementRef} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SpotifyService } from '../../../../../service/spotify.service';
+import { SpotifyService } from '../../../../../service/spotify/spotify.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 

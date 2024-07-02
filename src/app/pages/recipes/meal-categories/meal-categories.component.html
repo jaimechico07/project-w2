@@ -1,0 +1,21 @@
+<section class="mt-2 mb-10 md:mb-16 max-w-7xl mx-auto font-comfortaa ">
+  <h2 class="text-dynamic-h1 font-bold mb-8 w-fit text-black after:content-[''] relative after:rounded-full after:absolute after:bottom-0 after:right-0 after:w-14 after:h-[6px] after:bg-brown-secondary">Categorias</h2>
+  <div
+    *ngIf="categories.length > 0"
+    class="flex flex-wrap justify-center gap-4 w-full"
+  >
+      <div
+        *ngFor="let categorie of categories"
+        class="bg-white rounded-lg px-2 py-2 relative cursor-pointer group"
+        [routerLink]="['/mealListCategories', categorie.strCategory]"
+      >
+          <img
+            [src]="categorie.strCategoryThumb"
+            [alt]="categorie.strCategory"
+            class="rounded-lg max-w-[200px] object-contain duration-300 group-hover:scale-[0.85]"
+          />
+          <h3 class="absolute top-2 right-2 text-sm text-white px-3 py-1 rounded-full  bg-brown-secondary ">{{ categorie.strCategory }}</h3>
+
+      </div>
+  </div>
+</section>

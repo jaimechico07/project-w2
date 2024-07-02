@@ -1,0 +1,58 @@
+<section class="max-w-7xl py-16 md:py-10 mx-auto font-comfortaa">
+  <div
+    *ngFor="let detail of mealDetail; let i = index"
+    class="w-full flex flex-wrap items-start justify-center"
+  >
+    <div class="grid grid-cols-2 items-center mb-10 md:mb-16 gap-10">
+      <figure>
+        <img
+          class="w-full "
+          [src]="detail.strMealThumb"
+          [alt]="detail.strMealThumb"
+        />
+      </figure>
+      <div>
+        <h2 class="text-dynamic-h1">{{ detail.strMeal }}</h2>
+        <p
+          class="text-dynamic-text px-4 py-1 bg-brown-secondary w-fit rounded-full text-white mb-4"
+        >
+          {{ detail.strCategory }}
+        </p>
+        <div class="mb-4">
+        <p class="mb-2">Instrucciones:</p>
+        <p
+          class="text-dynamic-text  w-fit text-justify rounded-lg text-black mb-4"
+        >
+          {{ detail.strInstructions }}
+        </p>
+      </div>
+        <a [href]="detail.strYoutube" target="_blank">
+          <img src="../../../../assets/youtube-icon-logo.webp" class="w-10 h-10"></a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2  gap-10">
+      <div class="mb-4">
+        <p class="mb-2">Ingredientes:</p>
+        <ul class="flex flex-wrap gap-3">
+          <li
+            *ngFor="let ingredient of getIngredients(detail)"
+            class="text-dynamic-text px-4 py-1 bg-brown-primary w-fit rounded-lg text-white"
+          >
+            {{ ingredient }}
+          </li>
+        </ul>
+      </div>
+      <div class="mb-4">
+        <p class="mb-2">Medidas:</p>
+        <ul class="flex flex-wrap gap-3">
+          <li
+            *ngFor="let measure of getMeasures(detail)"
+            class="text-dynamic-text px-4 py-1 bg-brown-primary w-fit rounded-lg text-white"
+          >
+            {{ measure }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
