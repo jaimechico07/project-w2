@@ -6,7 +6,7 @@
     <div class="grid grid-cols-2 items-center mb-10 md:mb-16 gap-10">
       <figure>
         <img
-          class="w-full "
+          class="max-w-[450px] mx-auto rounded-full"
           [src]="detail.strMealThumb"
           [alt]="detail.strMealThumb"
         />
@@ -19,18 +19,23 @@
           {{ detail.strCategory }}
         </p>
         <div class="mb-4">
-        <p class="mb-2">Instrucciones:</p>
-        <p
-          class="text-dynamic-text  w-fit text-justify rounded-lg text-black mb-4"
-        >
-          {{ detail.strInstructions }}
-        </p>
-      </div>
-        <a [href]="detail.strYoutube" target="_blank">
-          <img src="../../../../assets/youtube-icon-logo.webp" class="w-10 h-10"></a>
+          <p class="mb-2">Instrucciones:</p>
+          <p
+            class="text-dynamic-text w-fit text-justify rounded-lg text-black mb-4"
+          >
+            {{ detail.strInstructions }}
+          </p>
+        </div>
+        <div class="w-fit">
+          <a [href]="detail.strYoutube" target="_blank" class="w-fit">
+            <img
+              src="../../../../assets/youtube-icon-logo.webp"
+              class="w-10 h-10"
+          /></a>
+        </div>
       </div>
     </div>
-    <div class="grid grid-cols-2  gap-10">
+    <div class="grid grid-cols-2 gap-10">
       <div class="mb-4">
         <p class="mb-2">Ingredientes:</p>
         <ul class="flex flex-wrap gap-3">
