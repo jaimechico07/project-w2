@@ -21,6 +21,7 @@ module.exports = {
       fontFamily: {
         "fugaz-one": ["Fugaz One", "sans-serif"],
         comfortaa: ["Comfortaa", "sans-serif"],
+        anton:["Anton SC", "sans-serif"]
       },
 
       fontSize: {

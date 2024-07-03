@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   userEmail: string | null = null;
   userDisplayName: string | null = null;
   userPhotoURL: string | null = null;
+  hora: any;
 
   constructor(private authService: AuthService) {}
 
@@ -34,7 +35,16 @@ export class HomeComponent implements OnInit {
         this.userPhotoURL = null;
       }
     });
+    this.mostrarHora();
   }
+
+   public mostrarHora() {
+    this.hora = new Date().toLocaleDateString("es-ES");
+    setInterval(() => {
+      this.hora = new Date();
+    }, 1000);
+  }
+
 
   toggleProfileVisibility() {
     this.isProfileVisible = !this.isProfileVisible;
