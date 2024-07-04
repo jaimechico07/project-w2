@@ -6,15 +6,15 @@
     <div class="grid grid-cols-2 items-center mb-10 md:mb-16 gap-10">
       <figure>
         <img
-          class="max-w-[450px] mx-auto rounded-full"
+          class="max-w-[450px] mx-auto rounded-lg"
           [src]="detail.strMealThumb"
           [alt]="detail.strMealThumb"
         />
       </figure>
       <div>
-        <h2 class="text-dynamic-h1">{{ detail.strMeal }}</h2>
+        <h2 class="text-dynamic-detail-text leading-none text-brown-secondary font-DM-display">{{ detail.strMeal }}</h2>
         <p
-          class="text-dynamic-text px-4 py-1 bg-brown-secondary w-fit rounded-full text-white mb-4"
+          class="text-dynamic-h2 w-fit rounded-full text-black mb-8"
         >
           {{ detail.strCategory }}
         </p>
@@ -37,7 +37,7 @@
     </div>
     <div class="grid grid-cols-2 gap-10">
       <div class="mb-4">
-        <p class="mb-2">Ingredientes:</p>
+        <p class="mb-2 font-DM-display text-dynamic-h2 text-brown-secondary">Ingredientes:</p>
         <ul class="flex flex-wrap gap-3">
           <li
             *ngFor="let ingredient of getIngredients(detail)"
@@ -48,7 +48,7 @@
         </ul>
       </div>
       <div class="mb-4">
-        <p class="mb-2">Medidas:</p>
+        <p class="mb-2 font-DM-display text-dynamic-h2 text-brown-secondary">Medidas:</p>
         <ul class="flex flex-wrap gap-3">
           <li
             *ngFor="let measure of getMeasures(detail)"
