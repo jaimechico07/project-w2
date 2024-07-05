@@ -1,12 +1,12 @@
-<section class="w-full grid grid-cols-2 place-items-center gap-10 font-comfortaa">
-  <figure class="h-screen w-full">
+<section class="w-full lg:grid lg:grid-cols-2 lg:h-full p-2 lg:p-0 flex bg-cheff-login lg:bg-none bg-cover bg-no-repeat h-screen justify-center items-center relative md-4 lg:place-items-center gap-10 font-comfortaa">
+  <figure class="h-screen w-full hidden lg:block">
     <img
       class="w-auto h-full"
       src="../../../assets/concentrated-female-chef-garnishing-food-in-kitchen2.webp"
       alt=""
     />
   </figure>
-  <div class="max-w-[450px] h-auto justify-center flex flex-col gap-5  bg-white/50 shadow-sm w-full rounded-lg p-4 md:p-20">
+  <div class="sm:max-w-[450px] max-w-[300px] h-auto justify-center flex flex-col gap-5 absolute lg:relative  bg-[#FFFCF8] lg:bg-white/50 shadow-lg w-full rounded-lg p-4">
     <h2 class="text-center text-dynamic-h2 ">Login</h2>
     <form (ngSubmit)="login()" class="flex flex-col w-full gap-5 ">
       <div class="relative w-full">
@@ -20,7 +20,7 @@
           required
         />
         <label
-          class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#F9F5EF] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+          class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#FFFCF8] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
           for="email"
           >Email:</label
         >
@@ -36,7 +36,7 @@
           required
         />
         <label
-          class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#F9F5EF] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+          class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#FFFCF8] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
           for="password"
           >Password:</label
         >
@@ -45,9 +45,9 @@
       <button type="submit" class="py-2 px-8 bg-transparent text-black rounded-full border border-black hover:bg-black hover:text-white duration-500">Ingresar</button>
 
     </form>
-    <div (click)="googleLogin()" class="bg-white flex shadow-sm gap-2 items-center justify-center rounded-full h-fit py-3 cursor-pointer" >
+    <div (click)="googleLogin()" class="bg-black duration-300 group hover:bg-[#FFFCF8] flex shadow-sm gap-2 items-center border hover:border-black justify-center rounded-full h-fit py-3 cursor-pointer" >
       <img class="w-8 h-8" src="../../../assets/icongoogle.webp">
-      <p> Login with Google</p>
+      <p class="text-white group-hover:text-black duration-300"> Login with Google</p>
     </div>
     <a routerLink="/register" class="text-center py-2 w-full px-8 bg-transparent text-black rounded-full border border-black hover:bg-black hover:text-white duration-500">Registrar</a>
   </div>

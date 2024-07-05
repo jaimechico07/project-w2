@@ -10,11 +10,11 @@
 
 .scroll-container {
   overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.scroll-container::-webkit-scrollbar { /* WebKit */
+.scroll-container::-webkit-scrollbar {
   width: 0;
   height: 0;
 }

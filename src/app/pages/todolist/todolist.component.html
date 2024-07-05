@@ -1,9 +1,9 @@
 <div
-  class="container mx-auto w-full h-screen flex flex-col justify-center items-center font-comfortaa"
+  class="container p-2 mx-auto w-full h-screen flex flex-col justify-center items-center font-comfortaa"
 >
   <h1 class="text-dynamic-h1 font-fugaz-one text-center">To-Do List</h1>
   <div class="flex justify-center flex-col items-center mb-4">
-    <div class="flex items-center gap-5">
+    <div class="flex items-center gap-2 sm:gap-5">
       <div class="relative">
         <input
           [(ngModel)]="newTaskDescription"
@@ -25,7 +25,7 @@
     </div>
     <app-error-message [message]="errorMessage"></app-error-message>
   </div>
-  <div class="flex justify-center max-w-2xl w-full gap-5">
+  <div class="flex flex-col md:flex-row max-h-[50vh] scroll-container justify-center max-w-3xl w-full gap-5">
     <div class="w-full">
       <h2 class="text-center mb-4">Tareas Pendientes</h2>
       <ul>
@@ -33,7 +33,7 @@
           *ngFor="let task of pendingTasks"
           class="flex items-center justify-between mb-4"
         >
-          <div class="flex items-center">
+          <div class="flex items-center w-[90%]">
             <input
               type="checkbox"
               class="mr-2 cursor-pointer"
@@ -50,7 +50,7 @@
           </div>
           <i-tabler
             name="trash"
-            class="text-red-500 font-medium cursor-pointer"
+            class="text-red-500 font-medium cursor-pointer w-[10%]"
             (click)="removeTask(task)"
           ></i-tabler>
         </li>
@@ -61,9 +61,9 @@
       <ul>
         <li
           *ngFor="let task of completedTasks"
-          class="flex items-center justify-between mb-4"
+          class="flex items-center justify-between mb-4 w-full"
         >
-          <div class="flex items-center">
+          <div class="flex items-center w-[90%]">
             <input
               type="checkbox"
               class="mr-2 cursor-pointer"
@@ -81,7 +81,7 @@
           </div>
           <i-tabler
             name="trash"
-            class="text-red-500 font-medium cursor-pointer"
+            class="text-red-500 font-medium cursor-pointer w-[10%]"
             (click)="removeTask(task)"
           ></i-tabler>
         </li>
@@ -89,12 +89,12 @@
     </div>
   </div>
   <img
-    class="absolute left-10 bottom-10 w-60"
+    class="absolute left-10 bottom-10 w-14 md:w-32 -z-10  lg:w-60"
     src="../../../assets/plantica.webp"
     alt=""
   />
   <img
-    class="absolute right-10 top-10 w-60"
+    class="absolute right-10 top-10 w-14 md:w-32 -z-10 lg:w-60"
     src="../../../assets/estante.webp"
     alt=""
   />

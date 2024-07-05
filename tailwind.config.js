@@ -34,10 +34,10 @@ module.exports = {
       backgroundImage: {
         "fondo-image": "url('/assets/fondo.webp')",
         "fondo-cocina": "url('/assets/fondococina.jpg')",
+        "cheff-login": "url('/assets/concentrated-female-chef-garnishing-food-in-kitchen2.webp')",
       },
       screens: {
         "3xl": "2000px",
-        "2xl": "1000px"
       },
     },
   },
