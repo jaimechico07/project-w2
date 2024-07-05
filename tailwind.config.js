@@ -21,13 +21,15 @@ module.exports = {
       fontFamily: {
         "fugaz-one": ["Fugaz One", "sans-serif"],
         comfortaa: ["Comfortaa", "sans-serif"],
-        anton:["Anton SC", "sans-serif"]
+        anton:["Anton SC", "sans-serif"],
+        "DM-display": ["DM Serif Display", "serif"],
       },
 
       fontSize: {
         "dynamic-h1": "clamp(1.5rem, 1.4024rem + 0.4878vw, 2rem)",
         "dynamic-h2": "clamp(1rem, 0.9024rem + 0.4878vw, 1.5rem)",
         "dynamic-text": "clamp(0.75rem, 0.7012rem + 0.2439vw, 1rem)",
+        "dynamic-detail-text":"clamp(2rem, -0.1136rem + 6.8182vw, 3.8rem)"
       },
       backgroundImage: {
         "fondo-image": "url('/assets/fondo.webp')",
