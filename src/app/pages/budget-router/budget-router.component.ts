@@ -54,7 +54,6 @@ export class BudgetRouterComponent implements OnInit {
   ngOnInit(): void {
     this.monto = Number(this.route.snapshot.paramMap.get('monto'));
     this.montoRestante = this.monto;
-    console.log(this.gastos);
   }
 
   restarGasto() {

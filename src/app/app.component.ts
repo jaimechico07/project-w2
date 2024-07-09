@@ -1,5 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { AuthService } from '../service/spotify/auth.services';
+import { AuthService } from './auth/services/spotify/spotify-auth.services';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';

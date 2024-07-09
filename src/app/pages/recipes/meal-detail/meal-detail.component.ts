@@ -3,7 +3,7 @@ import { IconsModule } from '../../../icons/icons.module';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MealdbService } from '../../../../service/recipesCook/mealdb.service'
+import { MealdbService } from '../../../auth/services/recipesCook/mealdb.service'
 
 @Component({
   selector: 'app-meal-detail',
@@ -32,6 +32,7 @@ export class MealDetailComponent implements OnInit {
     try {
       const data = await this.mealdbService.searchMealsDetail(idMeal);
       this.mealDetail = data.meals;
+      console.log(this.mealDetail)
     } catch (error) {
       console.error('Error fetching', error);
     }

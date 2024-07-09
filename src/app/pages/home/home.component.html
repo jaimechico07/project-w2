@@ -1,13 +1,21 @@
 <div class="container mx-auto h-screen p-4 font-comfortaa ralative">
   <div
-    class="flex flex-col gap-2 xl:grid xl:grid-cols-4 xl:grid-rows-4 xl:gap-4 h-full xl:place-content-center z-[-10]"
+    class="flex flex-col sm:grid sm:grid-cols-2 gap-2 xl:grid xl:grid-cols-4 xl:grid-rows-4 xl:gap-4 h-full xl:place-content-center z-[-10]"
   >
-    <a routerLink="/calculator" class="col-span-1 row-span-1">
-      <div class="bg-brown-primary h-full rounded-[40px] p-4">Calculadora</div>
+    <a routerLink="/calculator" class="col-span-1 row-span-1 relative group">
+      <img
+      src="../../../assets/Presupuesto.png"
+      class="bg-green-primary h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
+    />
+    <div
+      class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+    >
+      <span class="text-[#845751] font-bold text-3xl">Mi recetario</span>
+    </div>
     </a>
     <a
       routerLink="/BudgetComponent"
-      class="col-start-1 col-end-2 relative group"
+      class="xl:col-start-1 xl:col-end-2 col-start-2 col-end-3 row-start-1 row-end-2 relative group"
     >
       <img
         src="../../../assets/Presupuesto.png"
@@ -21,15 +29,14 @@
     </a>
     <a
       routerLink="/cookingMusic"
-      class="col-start-1 col-end-2 row-start-3 row-end-5"
+      class="col-start-1 col-end-2 row-start-3 row-end-5 xl:col-start-1 xl:col-end-2 xl:row-start-3 xl:row-end-5"
     >
       <img
         src="../../../assets/musiccell.png"
         class="bg-green-primary h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
       />
     </a>
-
-    <a routerLink="/Masscalculator" class="relative group">
+    <a routerLink="/Masscalculator" class="relative group col-start-1 col-end-2 row-start-5 row-end-6 xl:col-start-2 xl:col-end-3 xl:row-start-3 xl:row-end-4">
       <img
         src="../../../assets/galletaaa.webp"
         class="bg-pink-primary h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
@@ -44,14 +51,14 @@
     </a>
     <a
       routerLink="/todolist"
-      class="col-start-3 col-end-4 row-start-1 row-end-4"
+      class="col-start-2 col-end-3 row-start-5 row-end-8 xl:col-start-3 xl:col-end-4 xl:row-start-1 xl:row-end-4"
     >
       <img
         src="../../../assets/toDo.webp"
-        class="bg-green-primary h-full rounded-[40px] lg:p-4 max-w-[400px] lg:w-full m-auto"
+        class="bg-green-primary  rounded-[40px] h-full p-4 w-[400px] xl:w-full m-auto"
       />
     </a>
-    <div class="col-start-4 col-end-5 font-anton row-start-1 row-end-2">
+    <div class="col-start-2 col-end-3 row-start-2 row-end-3 xl:col-start-4 xl:col-end-5 font-anton xl:row-start-1 xl:row-end-2">
       <div
         class="bg-pink-primary h-full mx-auto max-w-[400px] lg:w-full rounded-[40px] p-4 snap-x flex justify-center items-center"
       >
@@ -59,19 +66,19 @@
           <div
             class="content snap-center tracking-wider text-cyan-600"
           >
-            <h2 class="md:text-8xl text-6xl ">
+            <h2 class=" lg:text-[85px] text-6xl ">
               {{ hora | date : "hh:mm:ss" }}
             </h2>
-            <h2 class="md:text-8xl text-6xl ">
+            <h2 class=" lg:text-[85px] text-6xl ">
               {{ hora | date : "hh:mm:ss" }}
             </h2>
           </div>
         </div>
         <div class="content snap-center tracking-wider  text-cyan-600">
-          <h2 class="md:text-8xl text-6xl ">
+          <h2 class=" lg:text-[85px] text-6xl ">
             {{ hora | date : "hh:mm:ss" }}
           </h2>
-          <h2 class="md:text-8xl text-6xl ">
+          <h2 class=" lg:text-[85px] text-6xl ">
             {{ hora | date : "hh:mm:ss" }}
           </h2>
         </div>
@@ -79,16 +86,16 @@
     </div>
     <a
       routerLink="/recipes"
-      class="col-start-4 col-end-5 row-start-3 row-end-5"
+      class="col-start-2 col-end-3 row-start-3 row-end-5 xl:col-start-4 xl:col-end-5 xl:row-start-3 xl:row-end-5"
     >
       <img
         src="../../../assets/recetario.jpg"
-        class="h-full rounded-[40px] max-w-[400px] lg:w-full m-auto"
+        class="h-full rounded-[40px]  w-[400px] xl:w-full m-auto"
       />
     </a>
     <a
       routerLink="/timer"
-      class="col-start-4 col-end-5 row-start-2 row-end-3 relative group"
+      class="col-start-1 col-end-2 row-start-2 row-end-3 xl:col-start-4 xl:col-end-5 xl:row-start-2 xl:row-end-3 relative group"
     >
       <img
         src="../../../assets/timer.png"
@@ -100,14 +107,14 @@
         <span class="text-[#845751] font-bold text-3xl">Temporizador</span>
       </div>
     </a>
-    <figure class="col-start-2 col-end-3 row-start-1 row-end-3 rounded-[40px]">
+    <figure class="col-start-1 col-end-2 row-start-6 row-end-8 xl:col-start-2 xl:col-end-3 xl:row-start-1 xl:row-end-3 rounded-[40px]">
       <img
         src="../../../assets/planta.webp"
-        class="rounded-[40px] h-full max-w-[400px] lg:w-full m-auto"
+        class="rounded-[40px] w-[400px] xl:w-full m-auto"
       />
     </figure>
     <figure
-      class="h-full col-start-2 col-end-4 row-start-4 row-end-5 mt-8 lg:mt-0"
+      class="h-full w-full col-start-1 col-end-3 row-start-8 row-end-9 xl:col-start-2 xl:col-end-4 xl:row-start-4 xl:row-end-5 mt-8 lg:mt-0"
     >
       <img
         src="../../../assets/Logoooo-removebg-preview.png"
@@ -163,15 +170,15 @@
 
   <!-- ------------ -->
   <div
-    class="absolute xl:left-0 xl:bottom-0 xl:right-auto xl:top-auto top-0 right-0 cursor-pointer"
+    class="absolute top-0 right-0 cursor-pointer"
     (click)="close()"
   >
     <div
-      class="p-6 bg-red-400 xl:rounded-tr-full rounded-bl-full xl:rounded-bl-none w-fit relative"
+      class="p-6 bg-red-400  rounded-bl-full  w-fit relative"
     >
       <i-tabler
         name="user-x"
-        class="cursor-pointer text-white font-bold absolute xl:bottom-2 xl:left-2 xl:top-auto xl:right-auto top-2 right-2"
+        class="cursor-pointer text-white font-bold absolute top-2 right-2 "
       ></i-tabler>
     </div>
   </div>

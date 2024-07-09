@@ -15,6 +15,14 @@ export class AuthService {
     });
   }
 
+  isLoggedIn(): boolean {
+    return !!this.user;
+  }
+
+  get authInstance(): Auth {
+    return this.auth;
+  }
+
   async login(email: string, password: string) {
     try {
       await signInWithEmailAndPassword(this.auth, email, password);
@@ -23,6 +31,7 @@ export class AuthService {
       console.error('Login error: ', error);
     }
   }
+
 
   async register(email: string, password: string, displayName?: string, photoFile?: File | null) {
     try {
@@ -43,8 +52,10 @@ export class AuthService {
       this.router.navigate(['/login']);
     } catch (error) {
       console.error('Register error: ', error);
+      throw error; // Propaga el error para manejarlo en el componente
     }
   }
+
 
   async googleLogin() {
     try {

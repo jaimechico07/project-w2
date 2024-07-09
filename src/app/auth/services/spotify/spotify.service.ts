@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from '../spotify/auth.services';
+import { AuthService } from './spotify-auth.services';
 
 @Injectable({
   providedIn: 'root'

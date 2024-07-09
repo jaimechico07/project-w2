@@ -1,5 +1,5 @@
 import { Component,  ViewChildren, QueryList, ElementRef} from '@angular/core';
-import { SpotifyService } from '../../../../../service/spotify/spotify.service';
+import { SpotifyService } from '../../../../auth/services/spotify/spotify.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconsModule } from '../../../../icons/icons.module';
@@ -25,7 +25,6 @@ export class SpotifySearchComponent {
       try {
         const data = await this.spotifyService.searchTracks(this.query);
         this.tracks = data.tracks.items;
-        console.log(this.tracks);
       } catch (error) {
         console.error('Error fetching search results', error);
       }

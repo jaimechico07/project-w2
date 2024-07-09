@@ -31,15 +31,22 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Este proyecto trata de una plataforma diseñada para ayudarte a organizar y mejorar tus habilidades culinarias. Desde planificar comidas hasta aprender nuevas recetas, esta herramienta todo en uno te ofrece las funciones necesarias para convertirte en un chef en casa.
 
 ## Framework utilizado
+
 - Tailwind css
 
 ## Librerias
-- jspdf: Una libreria para generar PDFs en JavaScript
+
+- jspdf: Una libreria para generar PDFs en JavaScript.
 - Flowbite: Biblioteca de código abierto de más de 600 componentes, secciones y páginas de UI creadas con las clases de utilidad de Tailwind CSS y diseñadas en Figma.
 
 ## Api Reference
-- Spotify.forDevelopers: https://developer.spotify.com/
 
-## descargar proyecto en :
+- Spotify.forDevelopers: [Api](https://developer.spotify.com/).
 
-https://github.com/jaimechico07/project-w2 
+## descargar proyecto en
+
+- [GitHub](https://github.com/jaimechico07/project-w2).
+
+## auth and database
+
+- FireBase: Authentication y Realtime Database.

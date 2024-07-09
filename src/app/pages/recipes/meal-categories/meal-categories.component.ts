@@ -1,5 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { MealdbService } from '../../../../service/recipesCook/mealdb.service';
+import { MealdbService } from '../../../auth/services/recipesCook/mealdb.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

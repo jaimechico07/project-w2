@@ -3,7 +3,7 @@ import { IconsModule } from '../../../icons/icons.module';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MealdbService } from '../../../../service/recipesCook/mealdb.service'
+import { MealdbService } from '../../../auth/services/recipesCook/mealdb.service'
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -35,7 +35,6 @@ export class MealListCategoriesComponent implements OnInit{
     try {
       const data = await this.mealdbService.filterMealsByCategory(strCategory);
       this.mealListCategory = data.meals;
-      console.log(this.mealListCategory)
     } catch (error) {
       console.error('Error fetching', error);
     }

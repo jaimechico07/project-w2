@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router'
 import { CommonModule } from '@angular/common';
 import {  getAuth, onAuthStateChanged } from '@angular/fire/auth';
 import { IconsModule } from '../../icons/icons.module';
-import { AuthService } from '../../../service/loginCook/auth.services';
+import { AuthService } from '../../auth/services/firebase/firebase-auth.services';
 
 @Component({
   selector: 'app-pages-home',
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     this.mostrarHora();
   }
 
-   public mostrarHora() {
+  public mostrarHora() {
     this.hora = new Date().toLocaleDateString("es-ES");
     setInterval(() => {
       this.hora = new Date();

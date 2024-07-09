@@ -1,5 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { SpotifyService } from '../../../../../service/spotify/spotify.service';
+import { SpotifyService } from '../../../../auth/services/spotify/spotify.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -27,7 +27,6 @@ export class SpotifyPlayListComponent implements OnInit{
     try {
       const data = await this.spotifyService.getFeaturedPlaylists();
       this.playlists = data.playlists.items;
-      console.log(this.playlists);
     } catch (error) {
       console.error('Error fetching featured playlists', error);
     }
