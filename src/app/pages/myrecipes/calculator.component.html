@@ -1,0 +1,130 @@
+<body>
+  <div class="container">
+    <div class="superior">
+      <div><img src="../../../assets/Flores.webp" alt="" class="flores" /></div>
+      <div class="textoTitulo">
+        <div class="titulo">Mis Recetas</div>
+        <ul class="categorias">
+          <li>● Desayunos</li>
+          <li>● Aperitivos</li>
+          <li>● Entradas</li>
+          <li>● Postres</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lapiz">
+      <a href="">
+        <img src="../../../assets/lapiz.webp" alt="" />
+      </a>
+    </div>
+  </div>
+  <div class="cartas">
+    <!-- INICIO PLANTILLA DE CARTA -->
+    <div *ngFor="let receta of recetas" class="cartasEjemplo"
+    >
+      <div class="imagenCarta">
+        <img class="w-40 h-40" [src]="receta.imagen" alt="Imagen de la receta" />
+      </div>
+      <div class="infoCantidad">
+        <div class="ordenadoFila items-center">
+          <div><i-tabler name="alarm"></i-tabler></div>
+          <div>{{ receta.tiempo }}</div>
+        </div>
+        <div class="ordenadoFila items-center">
+          <div><i-tabler name="user"></i-tabler></div>
+          <div>{{ receta.personas }} personas</div>
+        </div>
+      </div>
+      <div class="nombreCarta">{{ receta.titulo }}</div>
+      <div class="miniCategoria">● {{ receta.categoria }}</div>
+    </div>
+
+    <!-- FIN PLANTILLA DE CARTA -->
+
+    <!-- OPCION DE AGREGAR MAS -->
+    <div class="cartasEjemplo centrarCosa">
+      <label
+        for="btn-modal"
+        class="border-solid border-2 border-black agregar-carta rounded-full"
+      >
+        <div class="centrarCosa">
+          <i-tabler class="x-agregarmas" name="plus"></i-tabler>
+        </div>
+      </label>
+    </div>
+    <!-- FIN DE AGREGAR -->
+  </div>
+
+  <!-- INICIO MODAL AGREGAR MAS -->
+  <input type="checkbox" id="btn-modal" />
+  <div class="container-modal">
+    <div class="content-modal">
+      <div class="mb-3">
+        <h4 class="titulosmodal">Título</h4>
+        <label>
+          <input [(ngModel)]="nuevaReceta.titulo" type="text" placeholder="ingrese el titulo" class="inputmodal" />
+        </label>
+      </div>
+      <div class="flex gap-5 items-center w-full mb-3">
+
+          <h4 class="titulosmodal">Imagen</h4>
+          <label class="flex justify-center">
+            <input type="file" (change)="onFileSelected($event)" />
+          </label>
+          <div class="flex justify-center" *ngIf="nuevaReceta.imagen">
+            <img [src]="nuevaReceta.imagen" alt="Previsualización de la imagen" class="img-preview w-40 h-40" />
+          </div>
+
+      </div>
+      <div class="mb-3">
+        <h4 class="titulosmodal">Categoría</h4>
+        <ul class="categorias-modal gap-5">
+          <li *ngFor="let categoria of categorias"
+              (click)="seleccionarCategoria(categoria)"
+              [class.categoria-seleccionada]="nuevaReceta.categoria === categoria">
+            {{ categoria }}
+          </li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-1 gap-5">
+        <div class="flex gap-5 w-full">
+          <div class="flex-1 w-full">
+            <h4 class="titulosmodal">Tiempo</h4>
+            <label>
+              <input [(ngModel)]="nuevaReceta.tiempo" type="text" class="inputmodal_TP" />
+            </label>
+          </div>
+          <div class="flex-1 w-full">
+            <h4 class="titulosmodal">Personas</h4>
+            <label>
+              <input [(ngModel)]="nuevaReceta.personas" type="number" class="inputmodal_TP" />
+            </label>
+          </div>
+        </div>
+        <div class="flex gap-5 w-full">
+          <div class="flex-1 gap-2 w-full">
+            <h4 class="titulosmodal">Ingredientes</h4>
+            <div class="flex gap-2 items-center">
+              <input [(ngModel)]="ingredienteActual" class="inputIngredientes" type="text" />
+              <button (click)="agregarIngrediente()" class="border py-1 px-1 border-black rounded-md bg-transparent">
+                +
+              </button>
+            </div>
+            <ul>
+              <li *ngFor="let ingrediente of nuevaReceta.ingredientes">{{ ingrediente }}</li>
+            </ul>
+          </div>
+          <div class="flex-1 w-full">
+            <h4 class="titulosmodal">Preparacion</h4>
+            <textarea [(ngModel)]="nuevaReceta.preparacion" class="bg-transparent w-full h-1/2" placeholder="Escribe tu texto aquí..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-5 items-center justify-center">
+        <button (click)="guardarReceta()" class="px-5 py-2 bg-green-300 rounded-md">Guardar</button>
+        <button (click)="cerrarModal()" class="px-5 py-2 bg-red-400 rounded-md">Cerrar</button>
+      </div>
+    </div>
+    <label for="btn-modal" class="cerrar-modal"></label>
+  </div>
+</body>
