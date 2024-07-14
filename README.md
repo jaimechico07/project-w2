@@ -45,7 +45,7 @@ Este proyecto trata de una plataforma diseñada para ayudarte a organizar y mejo
 
 ## descargar proyecto en
 
-- [GitHub](https://github.com/jaimechico07/project-w2).
+- [GitHub](https://github.com/jaimechico07/project-w2). rama test
 
 ## auth and database
 

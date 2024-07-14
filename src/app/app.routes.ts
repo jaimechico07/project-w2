@@ -33,7 +33,7 @@ export const routes: Routes = [
   { path: 'timer', component: TimerComponent, canActivate: [authGuard] },
   { path: 'calculator', component: CalculatorComponent, canActivate: [authGuard] },
   { path: 'todolist', component: TodolistComponent, canActivate: [authGuard]  },
-  { path: 'callback', component: CallbackComponent, canActivate: [authGuard] },
+  { path: 'callback', component: CallbackComponent },
   { path: 'spotifyPlayListDetail/:id', component: SpotifyPlayListDetailComponent, canActivate: [authGuard]},
   { path: 'mealDetail/:id', component: MealDetailComponent, canActivate: [authGuard]},
   { path: 'mealListCategories/:strCategory', component:MealListCategoriesComponent, canActivate: [authGuard]},

@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!this.user;
+    return this.user !== null;
   }
 
   get authInstance(): Auth {
