@@ -5,7 +5,7 @@ import { BudgetRouterComponent } from './pages/budget-router/budget-router.compo
 import { TimerComponent } from './pages/timer/timer.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CookingMusicComponent } from './pages/cooking-music/cooking-music.component';
-import { CalculatorComponent } from './pages/calculator/calculator.component';
+import { CalculatorComponent } from './pages/myrecipes/calculator.component';
 import { TodolistComponent } from './pages/todolist/todolist.component';
 import { HourComponent } from './pages/hour/hour.component';
 import { SpotifyPlayListDetailComponent } from './pages/cooking-music/spotify/spotify-play-list-detail/spotify-play-list-detail.component';
@@ -19,6 +19,7 @@ import { RegisterComponent } from './pages/register/register.component';
 
 import { MealDetailComponent } from './pages/recipes/meal-detail/meal-detail.component';
 import { MealListCategoriesComponent } from './pages/recipes/meal-list-categories/meal-list-categories.component';
+import { DetailRecipesComponent } from './pages/myrecipes/detail-recipes/detail-recipes.component';
 
 export const routes: Routes = [
   { path: '', redirectTo:"login", pathMatch:'full'},
@@ -37,6 +38,7 @@ export const routes: Routes = [
   { path: 'callback', component: CallbackComponent },
   { path: 'spotifyPlayListDetail/:id', component: SpotifyPlayListDetailComponent},
   { path: 'mealDetail/:id', component: MealDetailComponent},
+  { path: 'detailRecipes/:id', component: DetailRecipesComponent},
   { path: 'mealListCategories/:strCategory', component:MealListCategoriesComponent},
   {
     path: 'not-found', component: NotFoundComponent
