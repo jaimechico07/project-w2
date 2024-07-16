@@ -4,8 +4,8 @@
   >
     <a routerLink="/myrecipes" class="col-span-1 row-span-1 relative group">
       <img
-      src="../../../assets/Presupuesto.png"
-      class="bg-green-primary h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
+      src="../../../assets/Mis_recetas.webp"
+      class="bg-[#E3C5B1] h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
     />
     <div
       class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -60,11 +60,11 @@
     </a>
     <div class="col-start-2 col-end-3 row-start-2 row-end-3 xl:col-start-4 xl:col-end-5 font-anton xl:row-start-1 xl:row-end-2">
       <div
-        class="bg-pink-primary h-full mx-auto max-w-[400px] lg:w-full rounded-[40px] p-4 snap-x flex justify-center items-center"
+        class=" h-full mx-auto max-w-[400px] lg:w-full rounded-[40px] p-4 snap-x flex justify-center items-center"
       >
         <div class="body2 h-auto">
           <div
-            class="content snap-center tracking-wider text-cyan-600"
+            class="content snap-center tracking-wider text-pink-primary"
           >
             <h2 class=" lg:text-[85px] text-6xl ">
               {{ hora | date : "hh:mm:ss" }}
@@ -74,7 +74,7 @@
             </h2>
           </div>
         </div>
-        <div class="content snap-center tracking-wider  text-cyan-600">
+        <div class="content snap-center tracking-wider  text-pink-primary">
           <h2 class=" lg:text-[85px] text-6xl ">
             {{ hora | date : "hh:mm:ss" }}
           </h2>
@@ -86,12 +86,18 @@
     </div>
     <a
       routerLink="/recipes"
-      class="col-start-2 col-end-3 row-start-3 row-end-5 xl:col-start-4 xl:col-end-5 xl:row-start-3 xl:row-end-5"
+      class="col-start-2 col-end-3 row-start-3 row-end-5 xl:col-start-4 xl:col-end-5 xl:row-start-3 p-4 xl:row-end-5 bg-[#E3C5B1] rounded-[40px] relative group"
     >
       <img
-        src="../../../assets/recetario.jpg"
-        class="h-full rounded-[40px]  w-[400px] xl:w-full m-auto"
+        src="../../../assets/tasita_de_Recetario.webp"
+        class=" h-full rounded-[40px] w-full p-4 object-contain m-auto max-w-[400px] lg:w-full"
       />
+      <div
+      class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+    >
+      <span class="text-[#845751] font-bold text-3xl">Mi recetario</span>
+    </div>
+
     </a>
     <a
       routerLink="/timer"

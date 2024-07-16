@@ -68,9 +68,11 @@ export class MyRecipesComponent implements OnInit {
     };
   }
 
+  //añade ingredientes al array ingredientes
   agregarIngrediente() {
     if (this.ingredienteActual.trim()) {
       this.nuevaReceta.ingredientes.push(this.ingredienteActual.trim());
+      //limpia imput
       this.ingredienteActual = '';
     }
   }
@@ -78,6 +80,7 @@ export class MyRecipesComponent implements OnInit {
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
+      //instancia para leer el contenido seleccionado
       const reader = new FileReader();
       reader.onload = (e) => {
         this.nuevaReceta.imagen = e.target?.result || null;
@@ -120,6 +123,8 @@ export class MyRecipesComponent implements OnInit {
     this.categoriaSeleccionada = null;
   }
 
+    //editar titulo y categorias
+
   seleccionarCategoria(categoria: string) {
     this.nuevaReceta.categoria = categoria;
     this.categoriaSeleccionada = categoria;
@@ -133,6 +138,7 @@ export class MyRecipesComponent implements OnInit {
     this.isEditing = false;
   }
 
+
   agregarCategoria() {
     if (this.nuevaCategoria.trim()) {
       this.categorias.push(this.nuevaCategoria.trim());
@@ -143,6 +149,7 @@ export class MyRecipesComponent implements OnInit {
   eliminarCategoria(index: number) {
     this.categorias.splice(index, 1);
   }
+
 
   async guardarCambios() {
     if (this.userId) {

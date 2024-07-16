@@ -23,25 +23,23 @@ import { MyRecipesComponent } from './pages/myrecipes/my-recipes.component';
 import { DetailMyrecipesComponent } from './pages/myrecipes/detail-myrecipes/detail-myrecipes.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo:"login", pathMatch:'full'},
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
-  { path: 'home', component: HomeComponent},
+  { path: '', redirectTo: "login", pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'BudgetComponent', component: BudgetComponent },
-  { path: 'BudgetRouterComponent/:monto', component: BudgetRouterComponent},
+  { path: 'BudgetRouterComponent/:monto', component: BudgetRouterComponent },
   { path: 'Masscalculator', component: MassCalculatorComponent },
   { path: 'recipes', component: RecipesComponent },
   { path: 'cookingMusic', component: CookingMusicComponent },
   { path: 'timer', component: TimerComponent },
   { path: 'myrecipes', component: MyRecipesComponent },
   { path: 'myrecipesdetail/:userId/:id', component: DetailMyrecipesComponent },
-  { path: 'todolist', component: TodolistComponent  },
+  { path: 'todolist', component: TodolistComponent },
   { path: 'callback', component: CallbackComponent },
-  { path: 'spotifyPlayListDetail/:id', component: SpotifyPlayListDetailComponent},
-  { path: 'mealDetail/:id', component: MealDetailComponent},
-  { path: 'mealListCategories/:strCategory', component:MealListCategoriesComponent},
-  {
-    path: 'not-found', component: NotFoundComponent
-  },
+  { path: 'spotifyPlayListDetail/:id', component: SpotifyPlayListDetailComponent },
+  { path: 'mealDetail/:id', component: MealDetailComponent },
+  { path: 'mealListCategories/:strCategory', component: MealListCategoriesComponent },
+  { path: 'not-found', component: NotFoundComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'not-found' },
 ];

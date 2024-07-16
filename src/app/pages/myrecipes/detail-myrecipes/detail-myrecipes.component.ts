@@ -47,10 +47,12 @@ async loadReceta(userId: string, recetaId: string) {
     this.router.navigate(['/myrecipes']);
   }
 
+  //abre modal
   abrirEdicion() {
     this.isEditing = true;
   }
 
+  //cierra modal
   cerrarEdicion() {
     this.isEditing = false;
   }
@@ -72,7 +74,6 @@ async loadReceta(userId: string, recetaId: string) {
       this.isEditing = false;
     }
   }
-
 
 
 }
