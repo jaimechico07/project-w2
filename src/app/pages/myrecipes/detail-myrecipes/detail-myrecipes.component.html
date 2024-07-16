@@ -1,0 +1,90 @@
+<section class="max-w-7xl py-16 md:py-10 mx-auto font-comfortaa ">
+  <div
+    class="grid grid-cols-2 mb-10 md:mb-16 gap-10 relative w-full"
+    *ngIf="receta"
+  >
+    <div class="flex flex-col gap-5">
+      <img
+        [src]="receta.imagen"
+        alt="Imagen de la receta"
+        class="mx-auto rounded-lg object-contain"
+      />
+      <div>
+      <h3 class="mb-4 text-dynamic-h1 font-DM-display text-brown-secondary">Ingredientes:</h3>
+      <ul class="list-disc pl-4">
+        <li class="first-letter:uppercase" *ngFor="let ingrediente of receta.ingredientes">
+          {{ ingrediente }}
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div class="informacion  ">
+      <h1
+        class="first-letter:uppercase text-dynamic-detail-text leading-none text-brown-secondary font-DM-display"
+      >
+        {{ receta.titulo }}
+      </h1>
+      <div>
+        <p class="text-dynamic-h2 w-fit rounded-full text-gray-400 mb-4">
+          {{ receta.categoria }}
+        </p>
+        <div class="flex items-center gap-5 mb-4">
+          <div class="flex items-center gap-2">
+            <i-tabler name="alarm"></i-tabler>
+            <p class="text-gray-400">{{ receta.tiempo }} min</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <i-tabler name="user"></i-tabler>
+            <p class="text-gray-400">{{ receta.personas }} personas</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p>{{ receta.preparacion }}</p>
+      </div>
+    </div>
+
+    <i-tabler name="arrow-bear-left" class="absolute top-0 -left-14 -rotate-45 cursor-pointer hover:-rotate-90 duration-300" (click)="irAtras()"></i-tabler>
+    <i-tabler name="edit" class="absolute top-0 -right-14 hover:rotate-45 duration-300 cursor-pointer" (click)="abrirEdicion()"></i-tabler>
+  </div>
+
+  <div *ngIf="isEditing" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg max-w-lg w-full">
+      <h2 class="text-xl font-bold mb-4">Editar Receta</h2>
+      <label class="block mb-2">
+        Título:
+        <input [(ngModel)]="receta!.titulo" class="w-full border p-2 rounded" type="text">
+      </label>
+      <label class="block mb-2">
+        Categoría:
+        <input [(ngModel)]="receta!.categoria" class="w-full border p-2 rounded" type="text">
+      </label>
+      <label class="block mb-2">
+        Tiempo:
+        <input [(ngModel)]="receta!.tiempo" class="w-full border p-2 rounded" type="text">
+      </label>
+      <label class="block mb-2">
+        Personas:
+        <input [(ngModel)]="receta!.personas" class="w-full border p-2 rounded" type="number">
+      </label>
+      <label class="block mb-2">
+        Ingredientes:
+        <div class="overflow-scroll scroll-container h-[150px]">
+        <div *ngFor="let ingrediente of receta!.ingredientes; let i = index" class="flex items-center mb-2 ">
+          <input [(ngModel)]="receta!.ingredientes[i]" class="border p-2 rounded w-full" type="text">
+          <button (click)="eliminarIngrediente(i)" class="ml-2 text-red-500">Eliminar</button>
+        </div>
+      </div>
+        <input [(ngModel)]="ingredienteActual" class="border p-2 rounded w-full mb-2" placeholder="Agregar nuevo ingrediente" (keyup.enter)="agregarIngrediente()">
+      </label>
+      <label class="block mb-2">
+        Preparación:
+        <textarea [(ngModel)]="receta!.preparacion" class="w-full border p-2 rounded"></textarea>
+      </label>
+      <div class="flex justify-end gap-4">
+        <button (click)="cerrarEdicion()" class="bg-red-500 text-white px-4 py-2 rounded">Cancelar</button>
+        <button (click)="guardarCambios()" class="bg-green-500 text-white px-4 py-2 rounded">Guardar</button>
+      </div>
+    </div>
+  </div>
+</section>

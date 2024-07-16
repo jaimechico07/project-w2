@@ -30,7 +30,7 @@ export class ButtonFloatingComponent {
       { color:'#B7E4C7',originalIcon:'receipt',icon: 'receipt',originalText:'Recetas', text: 'Recetas', link: '/recipes' },
       { color:'#D9CBE5',originalIcon:'player-play',icon: 'player-play',originalText:'Musica', text: 'Musica', link: '/cookingMusic' },
       { color:'#B5EAEA',originalIcon:'hourglass-empty',icon: 'hourglass-empty',originalText:'Temporizador', text: 'Temporizador', link: '/timer' },
-      { color:'#FFDAB9',originalIcon:'chef-hat',icon: 'chef-hat',originalText:'Calculadora', text: 'Calculadora', link: '/calculator' },
+      { color:'#FFDAB9',originalIcon:'chef-hat',icon: 'chef-hat',originalText:'Mis Recetas', text: 'Mis Recetas', link: '/myrecipes' },
       { color:'#FFFDD0',originalIcon:'list-details',icon: 'list-details',originalText:'To do list', text: 'To do list', link: '/todolist' }
     ];
 

@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap');
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+
+
 .lapiz{
     position: absolute;
     left: 1200px;
@@ -22,6 +19,7 @@ body {
 .container {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .flores {
@@ -31,10 +29,10 @@ body {
 .superior {
     display: flex;
     flex-wrap: wrap;
-    gap: 80px; /* Reducido a la mitad */
+    gap: 80px;
     justify-content: center;
-    margin-top: 50px; /* Reducido a la mitad */
-    margin-bottom: 50px; /* Reducido a la mitad */
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .textoTitulo {
@@ -44,18 +42,18 @@ body {
 }
 
 .titulo {
-    font-size: 49px; /* Reducido a la mitad */
+    font-size: 49px;
     color: #845751;
     font-family: "DM Serif Display", serif;
 }
 
 .categorias {
     display: flex;
-    justify-content: space-between;
-    font-size: 12px; /* Reducido a la mitad */
+    justify-content: center;
+    font-size: 12px;
     flex-wrap: wrap;
-    gap: 20px; /* Reducido a la mitad */
-    width: 341px; /* Reducido a la mitad */
+    gap: 20px;
+    width: 341px;
     color: #7E7E7E;
     font-family: "DM Sans", sans-serif;
 }
@@ -67,15 +65,19 @@ body {
 /* ESTILOS DE LA PARTE DE CARTAS */
 .cartas {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    width: 756px; /* Reducido a la mitad */
+    width: 756px;
+    gap: 30px;
 }
 
 .cartasEjemplo {
-    width: 159px; /* Reducido a la mitad */
-    height: 224.5px; /* Reducido a la mitad */
-    margin-bottom: 20px; /* Reducido a la mitad */
+    width: 159px;
+    height: 224.5px;
+    margin-bottom: 20px;
+}
+.agregar-carta{
+    width: -100px;
 }
 
 /* .cartasEjemplo:hover {
@@ -86,8 +88,6 @@ body {
 } */
 
 .imagenCarta {
-    background-color: #D9D9D9;
-    height: 171px; /* Reducido a la mitad */
     position: relative;
 }
 
@@ -95,20 +95,21 @@ body {
     display: flex;
     justify-content: space-between;
     color: #888888;
-    font-size: 11px; /* Reducido a la mitad */
-    margin-top: 4px; /* Reducido a la mitad */
+    font-size: 11px;
+    margin-top: 4px;
+    align-items: center;
 }
 .infoCantidad img{
     width: 17px;
 }
 
 .nombreCarta {
-    font-size: 14px; /* Reducido a la mitad */
+    font-size: 18px;
     font-family: "DM Serif Display", serif;
 }
 
 .miniCategoria {
-    font-size: 8px; /* Reducido a la mitad */
+    font-size: 12px;
     color: #888888;
     font-family: "DM Sans", sans-serif;
 }
@@ -149,8 +150,8 @@ body {
 }
 .content-modal{
     width: 100%;
-    max-width: 400px;
-    padding: 20px;
+    max-width: 900px;
+    padding: 60px 100px 60px 100px;
     background-color: #E2E2E2;
 
 }
@@ -183,3 +184,79 @@ body {
     top: 0;left: 0;
     z-index: -1;
 }
+/* modal */
+
+.titulosmodal{
+    font-family: "DM Sans", sans-serif;
+    color: #7C7C7C;
+    padding-bottom: 5px;
+}
+.inputmodal{
+    color: black;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom:2px solid black;
+}
+.inputmodal_TP{
+    color: black;
+    width: 300px;
+    background: none;
+    border: none;
+    border-bottom:2px solid black;
+}
+
+/* categoria */
+.categorias-modal{
+    display: flex;
+    flex-wrap: wrap;
+}
+/* tiempo- personas */
+.columnas{
+    display:  flex;
+    flex-wrap: wrap;
+}
+
+.categoria-seleccionada {
+  font-weight: bold;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+/* input ingredientes */
+.inputIngredientes{
+    background: none;
+    border: none;
+    border-bottom: #7C7C7C solid 2px;
+    margin-bottom: 5px;
+}
+.inputIngredientes-agregarmas{
+    padding: 10px 20px;
+    background: none;
+    border-radius: 10px;
+}
+#Preparacion textarea{
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    resize: none;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.x-agregarmas{
+    transition: transform 0.2s ease-in-out;
+}
+
+.x-agregarmas:hover {
+    transform: rotate(45deg);
+    /* animation: rotate 0.5s linear infinite; */
+}
+/* @keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(100deg);
+    }
+} */

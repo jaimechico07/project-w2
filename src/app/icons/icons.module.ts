@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 
+
 import { TablerIconsModule } from 'angular-tabler-icons';
-import { IconEdit, IconTrash, IconDirectionSign,IconUserX,IconPlayerPlay
+import { IconEdit,IconTrash, IconDirectionSign,IconUserX,IconPlayerPlay
   ,IconCalculator, IconX, IconPlus, IconChefHat,IconListDetails
-  , IconHourglassEmpty,IconSearch,IconUserPlus,IconRulerMeasure,IconHome,IconUserMinus,IconReceipt,IconEraser,IconBrandYoutubeFilled
+  ,IconAlarm,IconUserFilled,IconUser,IconArrowBearLeft, IconHourglassEmpty,IconSearch,IconUserPlus,IconRulerMeasure,IconHome,IconUserMinus,IconReceipt,IconEraser,IconBrandYoutubeFilled
 } from 'angular-tabler-icons/icons';
 
 // Select some icons (use an object, not an array)
 const icons = {
+  IconPlus,
   IconEdit,
+  IconUser,
+  IconAlarm,
+  IconUserFilled,
   IconTrash,
   IconDirectionSign,
   IconX,
-  IconPlus,
   IconChefHat,
   IconSearch,
   IconUserPlus,
@@ -26,7 +30,8 @@ const icons = {
   IconListDetails,
   IconReceipt,
   IconRulerMeasure,
-  IconHome
+  IconHome,
+  IconArrowBearLeft
 
 
 };
