@@ -15,25 +15,11 @@ body {
     height: 100%;
 }
 
-/* ESTILOS DE LA PARTE SUPERIOR DEL TITULO */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .flores {
-    height: 94px; /* Re ducido a la mitad */
+    height: 120px; /* Re ducido a la mitad */
 }
 
-.superior {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 80px;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
 
 .textoTitulo {
     display: flex;
@@ -63,13 +49,7 @@ body {
 }
 
 /* ESTILOS DE LA PARTE DE CARTAS */
-.cartas {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    width: 756px;
-    gap: 30px;
-}
+
 
 .cartasEjemplo {
     width: 159px;
@@ -151,7 +131,6 @@ body {
 .content-modal{
     width: 100%;
     max-width: 900px;
-    padding: 60px 100px 60px 100px;
     background-color: #E2E2E2;
 
 }

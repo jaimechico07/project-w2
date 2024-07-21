@@ -1,6 +1,6 @@
 <body>
-  <div class="container">
-    <div class="superior">
+  <div class="container mt-8 lg:mt-16 mb-8 lg:mb-16">
+    <div class="flex relative flex-wrap items-center justify-center gap-4 lg:gap-10 p-4 lg:p-0">
       <div><img src="../../../assets/Flores.webp" alt="" class="flores" /></div>
       <div class="textoTitulo">
         <div class="titulo">{{ titulo }}</div>
@@ -8,12 +8,12 @@
           <li *ngFor="let categoria of categorias">● {{ categoria }}</li>
         </ul>
       </div>
-    </div>
-    <div >
+      <div>
         <i-tabler class="x-agregarmas cursor-pointer" name="edit"  (click)="abrirModalEdicion()"></i-tabler>
     </div>
+    </div>
   </div>
-  <div class="cartas">
+  <div class="flex justify-center flex-wrap gap-8 p-4 lg:p-0">
     <!-- INICIO PLANTILLA DE CARTA -->
     <div *ngFor="let receta of recetas" class="cartasEjemplo relative" [routerLink]="['/myrecipesdetail', userId, receta.id]">
       <div>
@@ -136,7 +136,7 @@
 
    <!-- INICIO MODAL EDICIÓN -->
    <div class="w-full h-full fixed top-0 lef-0 bg-[#0000003d] justify-center flex items-center" *ngIf="isEditing">
-     <div class="content-modal">
+     <div class="content-modal p-8 lg:p-16 rounded-lg">
        <div class="mb-3">
          <h4 class="titulosmodal">Editar Título</h4>
          <label>

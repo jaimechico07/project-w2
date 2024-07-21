@@ -1,5 +1,5 @@
 <section class="max-w-7xl py-16 md:py-10 mx-auto font-comfortaa">
-  <div class="grid grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))] place-items-center gap-4">
+  <div class="grid grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))] place-items-center gap-4 p-4">
     <div
       *ngFor="let detail of mealListCategory; let i = index"
       [routerLink]="['/mealDetail', detail.idMeal]"

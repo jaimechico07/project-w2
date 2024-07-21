@@ -1,12 +1,12 @@
 <section class="max-w-7xl py-16 md:py-10 mx-auto font-comfortaa">
   <div
     *ngFor="let detail of mealDetail; let i = index"
-    class="w-full flex flex-wrap items-start justify-center"
+    class="w-full flex flex-wrap items-start justify-center lg:p-0 "
   >
-    <div class="grid grid-cols-2 items-center mb-10 md:mb-16 gap-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center p-4 mb-4 lg:mb-16 gap-5 xl:gap-10">
       <figure>
         <img
-          class="max-w-[450px] mx-auto rounded-lg"
+          class="sm:max-w-[450px] mx-auto rounded-lg"
           [src]="detail.strMealThumb"
           [alt]="detail.strMealThumb"
         />
@@ -14,7 +14,7 @@
       <div>
         <h2 class="text-dynamic-detail-text leading-none text-brown-secondary font-DM-display">{{ detail.strMeal }}</h2>
         <p
-          class="text-dynamic-h2 w-fit rounded-full text-gray-400 mb-8"
+          class="text-dynamic-h2 w-fit rounded-full text-gray-400 mb-4 lg:mb-8"
         >
           {{ detail.strCategory }}
         </p>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-2 gap-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10 p-4">
       <div class="mb-4">
         <p class="mb-2 font-DM-display text-dynamic-h2 text-brown-secondary">Ingredientes:</p>
         <ul class="flex flex-wrap gap-3">
@@ -60,4 +60,5 @@
       </div>
     </div>
   </div>
+
 </section>
