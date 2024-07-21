@@ -40,6 +40,6 @@ export const routes: Routes = [
   { path: 'spotifyPlayListDetail/:id', component: SpotifyPlayListDetailComponent,canActivate: [authGuard] },
   { path: 'mealDetail/:id', component: MealDetailComponent,canActivate: [authGuard] },
   { path: 'mealListCategories/:strCategory', component: MealListCategoriesComponent,canActivate: [authGuard] },
-  { path: 'not-found', component: NotFoundComponent,canActivate: [authGuard] },
+  { path: 'not-found', component: NotFoundComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'not-found' },
 ];
