@@ -1,43 +1,31 @@
-<div class="flex justify-center items-center h-screen">
-  <div class="text-center">
-    <h1 class="text-3xl font-bold mb-4">Temporizador</h1>
-    <div class="flex justify-center items-center mb-4">
-      <input
-        type="number"
-        class="w-20 text-2xl mr-2 p-2 border border-gray-300 rounded"
-        [(ngModel)]="horas"
-        placeholder="Horas"
-        (change)="validarHoras()"
-      />
-      <span>:</span>
-      <input
-        type="number"
-        class="w-20 text-2xl mx-2 p-2 border border-gray-300 rounded"
-        [(ngModel)]="minutos"
-        placeholder="Minutos"
-        (change)="validarMinutos()"
-      />
-      <span>:</span>
-      <input
-        type="number"
-        class="w-20 text-2xl ml-2 p-2 border border-gray-300 rounded"
-        [(ngModel)]="segundos"
-        placeholder="Segundos"
-        (change)="validarSegundos()"
-      />
+<div class="content" [class.move]="animate">
+  <div class="content-timer">
+    <div class="content-h">
+      <div class="time">{{ hours | number:'2.0'}} <span>h</span></div>
+      <div class="content-btn" *ngIf="show">
+        <button (click)="increment('H')"> + </button>
+        <button (click)="decrement('H')"> - </button>
+      </div>
     </div>
-    <button
-      (click)="startTimer()"
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4"
-    >
-      Iniciar
-    </button>
-    <button
-      (click)="resetTimer()"
-      class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-    >
-      Reiniciar
-    </button>
-    <div class="text-4xl mt-8">{{ tiempoRestante }}</div>
+    <div class="content-m">
+      <div class="time">{{ minutes | number:'2.0'}} <span>m</span></div>
+      <div class="content-btn" *ngIf="show">
+        <button (click)="increment('M')"> + </button>
+        <button (click)="decrement('M')"> - </button>
+      </div>
+    </div>
+    <div class="content-s">
+      <div class="time">{{seconds | number:'2.0'}} <span>s</span></div>
+      <div class="content-btn" *ngIf="show">
+        <button (click)="increment('S')"> + </button>
+        <button (click)="decrement('S')"> - </button>
+      </div>
+    </div>
+  </div>
+  <div class="content-btn-action">
+    <button type="button" (click)="start()" [disabled]="disabled">&#9658;</button>
+    <button type="button" (click)="stop()">&#9724;</button>
+    <button type="button" (click)="reset()">&#8635;</button>
   </div>
 </div>
+

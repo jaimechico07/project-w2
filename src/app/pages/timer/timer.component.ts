@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -9,73 +9,104 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './timer.component.html',
   styleUrl: './timer.component.css'
 })
-export class TimerComponent {
-  horas: number = 0;
-  minutos: number = 0;
-  segundos: number = 0;
-  tiempoTotal: number = 0;
-  tiempoRestante: string = '';
-  intervalId: any;
+export class TimerComponent implements OnInit {
+  title = 'timer-app';
+  public hours: number = 0;
+  public minutes: number = 0;
+  public seconds: number = 0;
+  private timer: any;
+  private date = new Date();
 
-  startTimer() {
-    this.horas = Math.max(0, this.horas);
-    this.minutos = Math.max(0, this.minutos);
-    this.segundos = Math.max(0, this.segundos);
+  public show: boolean = true;
+  public disabled: boolean = false;
+  public animate: boolean = false;
 
-    this.tiempoTotal = (this.horas * 3600) + (this.minutos * 60) + this.segundos;
+  constructor() { }
 
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
+  ngOnInit(): void {
+  }
+
+  increment(type: 'H' | 'M' | 'S') {
+    if (type === 'H') {
+      if (this.hours >= 99) return;
+      this.hours += 1;
     }
+    else if (type === 'M') {
+      if (this.minutes >= 59) return;
+      this.minutes += 1;
+    }
+    else {
+      if (this.seconds >= 59) return;
+      this.seconds += 1;
+    }
+  }
+  decrement(type: 'H' | 'M' | 'S') {
+    if (type === 'H') {
+      if (this.hours <= 0) return;
+      this.hours -= 1;
+    }
+    else if (type === 'M') {
+      if (this.minutes <= 0) return;
+      this.minutes -= 1;
+    }
+    else {
+      if (this.seconds <= 0) return;
+      this.seconds -= 1;
+    }
+  }
 
-    this.intervalId = setInterval(() => {
-      this.tiempoTotal--;
-      if (this.tiempoTotal <= 0) {
-        clearInterval(this.intervalId);
+  updateTimer() {
+    this.date.setHours(this.hours);
+    this.date.setMinutes(this.minutes);
+    this.date.setSeconds(this.seconds);
+    this.date.setMilliseconds(0);
+    const time = this.date.getTime();
+    this.date.setTime(time - 1000);  //---
+
+    this.hours = this.date.getHours();
+    this.minutes = this.date.getMinutes();
+    this.seconds = this.date.getSeconds();
+
+    if (this.date.getHours() === 0 &&
+      this.date.getMinutes() === 0 &&
+      this.date.getSeconds() === 0) {
+      //stop interval
+      clearInterval(this.timer);
+      this.animate = true;
+      setTimeout(() => {
+        this.stop();
+      }, 5000);
+
+    }
+  }
+
+  start() {
+    if (this.hours > 0 || this.minutes > 0 || this.seconds > 0) {
+
+      this.disabled = true;
+      this.show = false;  //hide btn + and -
+      this.updateTimer();
+
+      if(this.seconds > 0){
+        this.timer = setInterval(() => {
+          this.updateTimer();
+        }, 1000);
       }
-      this.tiempoRestante = this.formatTiempo(this.tiempoTotal);
-    }, 1000);
-  }
-  
-resetTimer() {
-    clearInterval(this.intervalId);
-    this.horas = 0;
-    this.minutos = 0;
-    this.segundos = 0;
-    this.tiempoTotal = 0;
-    this.tiempoRestante = '';
+    }
   }
 
-  formatTiempo(tiempo: number): string {
-    const horas = Math.floor(tiempo / 3600);
-    const minutos = Math.floor((tiempo % 3600) / 60);
-    const segundos = tiempo % 60;
-    return `${horas}:${minutos < 10 ? '0' : ''}${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+  stop() {
+    this.disabled = false;
+    this.show = true;
+    this.animate = false;
+    clearInterval(this.timer);
   }
 
-  ngOnDestroy() {
-    clearInterval(this.intervalId);
+  reset() {
+    this.hours = 0;
+    this.minutes = 0;
+    this.seconds = 0;
+    this.stop();
   }
-
-  incrementarSegundos() {
-    this.segundos++;
-    this.segundos = Math.max(0, this.segundos); // Validación para evitar valores negativos
-  }
-
-  decrementarSegundos() {
-    this.segundos--;
-    this.segundos = Math.max(0, this.segundos); // Validación para evitar valores negativos
-  }
-  validarHoras() {
-  this.horas = Math.max(0, this.horas);
-}
-
-validarMinutos() {
-  this.minutos = Math.max(0, this.minutos);
-}
-
-validarSegundos() {
-  this.segundos = Math.max(0, this.segundos);
-}
 
 }
