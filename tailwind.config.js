@@ -34,7 +34,7 @@ module.exports = {
       backgroundImage: {
         "fondo-image": "url('/assets/fondo.webp')",
         "fondo-cocina": "url('/assets/fondococina.webp')",
-        "cheff-login": "url('/assets/concentrated-female-chef-garnishing-food-in-kitchen2.webp')",
+        "cheff-login": "url('/assets/concentrated-female-chef-garnishing-food-in-kitchen2_11zon.webp')",
       },
       screens: {
         "3xl": "2000px",
