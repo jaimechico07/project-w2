@@ -11,7 +11,7 @@ import { SpotifyPlayListDetailComponent } from './pages/cooking-music/spotify/sp
 
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MassCalculatorComponent } from './pages/mass-calculator/mass-calculator.component';
-import { CallbackComponent } from './auth/services/spotify/callback.component'
+// import { CallbackComponent } from './auth/services/spotify/callback.component'
 
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -36,7 +36,7 @@ export const routes: Routes = [
   { path: 'myrecipes', component: MyRecipesComponent },
   { path: 'myrecipesdetail/:userId/:id', component: DetailMyrecipesComponent },
   { path: 'todolist', component: TodolistComponent },
-  { path: 'callback', component: CallbackComponent },
+  // { path: 'callback', component: CallbackComponent },
   { path: 'spotifyPlayListDetail/:id', component: SpotifyPlayListDetailComponent },
   { path: 'mealDetail/:id', component: MealDetailComponent },
   { path: 'mealListCategories/:strCategory', component: MealListCategoriesComponent },
