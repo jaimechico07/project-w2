@@ -35,21 +35,21 @@
           />
         </div>
         <div class="flex justify-between text-[#888888] text-[11px] mt-[4px] items-center">
-          <div class="ordenadoFila items-center">
+          <div class="flex justify-start items-center">
             <div><i-tabler name="alarm"></i-tabler></div>
             <div>{{ receta.tiempo }}</div>
           </div>
-          <div class="ordenadoFila items-center">
+          <div class="flex justify-start items-center">
             <div><i-tabler name="user"></i-tabler></div>
             <div>{{ receta.personas }} personas</div>
           </div>
         </div>
         <div>
           <div class="flex items-center justify-between">
-            <p class="nombreCarta">{{ receta.titulo }}</p>
+            <p class="text-[18px] font-DM-display">{{ receta.titulo }}</p>
           </div>
         </div>
-        <div class="miniCategoria">● {{ receta.categoria }}</div>
+        <div class="text-[12px] text-[#888888] font-DM-display">● {{ receta.categoria }}</div>
       </div>
       <i-tabler
         class="cursor-pointer text-white p-1 bg-black absolute top-0 right-0"
@@ -62,7 +62,7 @@
     <!-- FIN PLANTILLA DE CARTA -->
 
     <!-- OPCION DE AGREGAR MAS -->
-    <div class="cartasEjemplo flex justify-center items-center">
+    <div class="w-[159px] h-[224.5px] mb-5  flex justify-center items-center">
       <label
         for="btn-modal"
         class="border-solid border-2 border-black w-[-100px] rounded-full"
