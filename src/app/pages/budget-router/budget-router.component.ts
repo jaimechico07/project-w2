@@ -128,32 +128,32 @@ export class BudgetRouterComponent implements OnInit {
 
   }
 
-  generarPDF() {
-    const doc = new jsPDF();
-    const tableData: any[][] = [];
-    const headers = ['Nombre', 'Precio', 'Descripción'];
+  // generarPDF() {
+  //   const doc = new jsPDF();
+  //   const tableData: any[][] = [];
+  //   const headers = ['Nombre', 'Precio', 'Descripción'];
 
-    this.gastos.forEach(gasto => {
-      const rowData = [
-        gasto.nombre,
-        gasto.precio.toString(),
-        gasto.descripcion || ''
-      ];
-      tableData.push(rowData);
-    });
+  //   this.gastos.forEach(gasto => {
+  //     const rowData = [
+  //       gasto.nombre,
+  //       gasto.precio.toString(),
+  //       gasto.descripcion || ''
+  //     ];
+  //     tableData.push(rowData);
+  //   });
 
 
-    doc.text(`Monto inicial: S/ ${this.monto}`, 10, 10);
-    doc.text(`Gasto realizado: S/ ${this.gastoRealizado}`, 10, 20);
-    doc.text(`Monto restante: S/ ${this.montoRestante}`, 10, 30);
+  //   doc.text(`Monto inicial: S/ ${this.monto}`, 10, 10);
+  //   doc.text(`Gasto realizado: S/ ${this.gastoRealizado}`, 10, 20);
+  //   doc.text(`Monto restante: S/ ${this.montoRestante}`, 10, 30);
 
-    autoTable(doc, {
-      head: [headers],
-      body: tableData,
-      startY: 40
-    });
+  //   autoTable(doc, {
+  //     head: [headers],
+  //     body: tableData,
+  //     startY: 40
+  //   });
 
-    doc.save('presupuesto.pdf');
-  }
+  //   doc.save('presupuesto.pdf');
+  // }
 
 }

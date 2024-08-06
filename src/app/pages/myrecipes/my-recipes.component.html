@@ -3,11 +3,11 @@
     <div
       class="flex relative flex-wrap items-center justify-center gap-4 lg:gap-10 p-4 lg:p-0"
     >
-      <div><img src="../../../assets/Flores.webp" alt="" class="flores" /></div>
-      <div class="textoTitulo">
-        <div class="titulo">{{ titulo }}</div>
-        <ul class="categorias">
-          <li *ngFor="let categoria of categorias">● {{ categoria }}</li>
+      <div><img src="../../../assets/Flores.webp" alt="" class="h-[120px]" /></div>
+      <div class="flex items-center flex-col">
+        <div class="text-[49px] text-[#845751] font-DM-display">{{ titulo }}</div>
+        <ul class="flex justify-center text-[12px] flex-wrap gap-5 w-[341px] text-[#7E7E7E] font-DM-display">
+          <li class="hover:text-[#CA845E]" *ngFor="let categoria of categorias">● {{ categoria }}</li>
         </ul>
       </div>
       <div>
@@ -23,18 +23,18 @@
     <!-- INICIO PLANTILLA DE CARTA -->
     <div
       *ngFor="let receta of recetas"
-      class="cartasEjemplo relative"
+      class="w-[159px] h-[224.5px] mb-5 relative"
       [routerLink]="['/myrecipesdetail', userId, receta.id]"
     >
       <div>
-        <div class="imagenCarta">
+        <div class="relative">
           <img
             class="w-40 h-40 object-cover"
             [src]="receta.imagen"
             alt="Imagen de la receta"
           />
         </div>
-        <div class="infoCantidad">
+        <div class="flex justify-between text-[#888888] text-[11px] mt-[4px] items-center">
           <div class="ordenadoFila items-center">
             <div><i-tabler name="alarm"></i-tabler></div>
             <div>{{ receta.tiempo }}</div>
@@ -62,12 +62,12 @@
     <!-- FIN PLANTILLA DE CARTA -->
 
     <!-- OPCION DE AGREGAR MAS -->
-    <div class="cartasEjemplo centrarCosa">
+    <div class="cartasEjemplo flex justify-center items-center">
       <label
         for="btn-modal"
-        class="border-solid border-2 border-black agregar-carta rounded-full"
+        class="border-solid border-2 border-black w-[-100px] rounded-full"
       >
-        <div class="centrarCosa">
+        <div class="flex justify-center items-center">
           <i-tabler class="x-agregarmas cursor-pointer" name="plus"></i-tabler>
         </div>
       </label>
@@ -77,21 +77,21 @@
 
   <!-- INICIO MODAL AGREGAR MAS -->
   <input type="checkbox" id="btn-modal" />
-  <div class="container-modal">
+  <div class="w-full h-full fixed top-0 left-0 bg-[#0000004b] container-modal hidden justify-center items-center z-[100]">
     <div class="content-modal p-5">
       <div class="mb-3">
-        <h4 class="titulosmodal">Título</h4>
+        <h4 class="font-DM-display text-[#7C7C7C] pb-[5px]">Título</h4>
         <label>
           <input
             [(ngModel)]="nuevaReceta.titulo"
             type="text"
             placeholder="ingrese el titulo"
-            class="inputmodal"
+            class="text-black w-full bg-transparent  border-b-2 border-black"
           />
         </label>
       </div>
       <div class="flex sm:flex-row flex-col gap-5 items-start sm:items-center w-full mb-3">
-        <h4 class="titulosmodal">Imagen</h4>
+        <h4 class="font-DM-display text-[#7C7C7C] pb-[5px]">Imagen</h4>
         <label class="flex justify-center">
           <input type="file" (change)="onFileSelected($event)"/>
         </label>
@@ -104,7 +104,7 @@
         </div>
       </div>
       <div class="mb-3">
-        <h4 class="titulosmodal">Categoría</h4>
+        <h4 class="font-DM-display text-[#7C7C7C] pb-[5px]">Categoría</h4>
         <ul class="categorias-modal gap-5">
           <li
             *ngFor="let categoria of categorias"
@@ -118,33 +118,33 @@
       <div class="grid grid-cols-1 gap-5">
         <div class="flex sm:flex-row flex-col gap-5 w-full">
           <div class="flex-1 w-full">
-            <h4 class="titulosmodal">Tiempo</h4>
+            <h4 class="font-DM-display text-[#7C7C7C] pb-[5px]">Tiempo</h4>
             <label>
               <input
                 [(ngModel)]="nuevaReceta.tiempo"
                 type="text"
-                class="inputmodal_TP w-full"
+                class="text-black w-full bg-transparent  border-b-2 border-black "
               />
             </label>
           </div>
           <div class="flex-1 w-full">
-            <h4 class="titulosmodal">Personas</h4>
+            <h4 class="font-DM-display text-[#7C7C7C] pb-[5px]">Personas</h4>
             <label>
               <input
                 [(ngModel)]="nuevaReceta.personas"
                 type="number"
-                class="inputmodal_TP w-full"
+                class="text-black w-full bg-transparent  border-b-2 border-black "
               />
             </label>
           </div>
         </div>
         <div class="flex sm:flex-row flex-col gap-5 w-full">
           <div class="flex-1 gap-2 w-full">
-            <h4 class="titulosmodal">Ingredientes</h4>
+            <h4 class="font-DM-display text-[#7C7C7C] pb-[5px]">Ingredientes</h4>
             <div class="flex gap-2 items-center ">
               <input
                 [(ngModel)]="ingredienteActual"
-                class="inputIngredientes w-full "
+                class="bg-transparent  border-b-2 border-[#7C7C7C] mb-[5px] w-full "
                 type="text"
               />
               <button
@@ -163,7 +163,7 @@
             </ul>
           </div>
           <div class="flex-1 w-full">
-            <h4 class="titulosmodal">Preparacion</h4>
+            <h4 class="font-DM-display text-[#7C7C7C] pb-[5px]">Preparacion</h4>
             <textarea
               [(ngModel)]="nuevaReceta.preparacion"
               class="bg-transparent w-full h-1/2"
@@ -194,16 +194,16 @@
   >
     <div class="content-modal p-8 lg:p-16 rounded-lg">
       <div class="mb-3">
-        <h4 class="titulosmodal">Editar Título</h4>
+        <h4 class="font-DM-display text-[#7C7C7C] pb-[5px]">Editar Título</h4>
         <label>
-          <input [(ngModel)]="titulo" type="text" class="inputmodal" />
+          <input [(ngModel)]="titulo" type="text" class="text-black w-full bg-transparent  border-b-2 border-black" />
         </label>
       </div>
       <div class="mb-3">
-        <h4 class="titulosmodal">Editar Categorías</h4>
+        <h4 class="font-DM-display text-[#7C7C7C] pb-[5px]">Editar Categorías</h4>
         <ul class="grid grid-cols-2 gap-4">
           <li *ngFor="let categoria of categorias; let i = index">
-            <input [(ngModel)]="categorias[i]" type="text" class="inputmodal" />
+            <input [(ngModel)]="categorias[i]" type="text" class="text-black w-full bg-transparent  border-b-2 border-black" />
             <button
               (click)="eliminarCategoria(i)"
               class="bg-red-500 text-white px-2 py-1 rounded"
@@ -215,7 +215,7 @@
         <div class="flex gap-2 items-center mt-2">
           <input
             [(ngModel)]="nuevaCategoria"
-            class="inputIngredientes"
+            class="bg-transparent border-none border-b-2 border-[#7C7C7C] mb-[5px] w-full"
             type="text"
             placeholder="Nueva categoría"
           />
