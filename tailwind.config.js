@@ -33,7 +33,7 @@ module.exports = {
       },
       backgroundImage: {
         "fondo-image": "url('/assets/fondo.webp')",
-        "fondo-cocina": "url('/assets/fondococina.jpg')",
+        "fondo-cocina": "url('/assets/fondococina.webp')",
         "cheff-login": "url('/assets/concentrated-female-chef-garnishing-food-in-kitchen2.webp')",
       },
       screens: {
