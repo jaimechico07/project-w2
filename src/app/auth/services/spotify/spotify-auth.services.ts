@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class AuthService {
-  private clientId = '0fa0fc7cbede46569872d551a394c103';
-  private clientSecret = 'c30ad7be33314b2ea52507fb63afa46d';
-  private redirectUri = 'http://localhost:4200/callback';
-  private authUrl = 'https://accounts.spotify.com/authorize';
-  private tokenUrl = 'https://accounts.spotify.com/api/token';
+  private clientId = environment.spotify.clientId;
+  private clientSecret = environment.spotify.clientSecret;
+  private redirectUri = environment.spotify.redirectUri;
+  private authUrl = environment.spotify.authUrl;
+  private tokenUrl = environment.spotify.tokenUrl;
 
-  constructor() { }
+  constructor() {}
 
   public login() {
     const scopes = [
@@ -19,7 +19,11 @@ export class AuthService {
       'user-read-email',
       'playlist-read-private',
     ];
-    window.location.href = `${this.authUrl}?client_id=${this.clientId}&response_type=code&redirect_uri=${encodeURIComponent(this.redirectUri)}&scope=${scopes.join('%20')}`;
+    window.location.href = `${this.authUrl}?client_id=${
+      this.clientId
+    }&response_type=code&redirect_uri=${encodeURIComponent(
+      this.redirectUri
+    )}&scope=${scopes.join('%20')}`;
   }
 
   public async getAccessToken(code: string): Promise<string> {
@@ -30,9 +34,12 @@ export class AuthService {
         //Requerido por spotify para obtener acceso a los recursos
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': 'Basic ' + btoa(`${this.clientId}:${this.clientSecret}`)
+          Authorization:
+            'Basic ' + btoa(`${this.clientId}:${this.clientSecret}`),
         },
-        body: `grant_type=authorization_code&code=${code}&redirect_uri=${encodeURIComponent(this.redirectUri)}`
+        body: `grant_type=authorization_code&code=${code}&redirect_uri=${encodeURIComponent(
+          this.redirectUri
+        )}`,
       });
 
       // Procesamiento de la respuesta JSON obtenida del servidor
@@ -40,9 +47,11 @@ export class AuthService {
 
       if (data.access_token) {
         localStorage.setItem('access_token', data.access_token);
-        localStorage.setItem('expires_in', (Date.now() + data.expires_in * 1000).toString());
+        localStorage.setItem(
+          'expires_in',
+          (Date.now() + data.expires_in * 1000).toString()
+        );
         return data.access_token;
-
       } else {
         // Manejo de errores si no se pudo obtener el token de acceso
         console.error('Failed to obtain access token', data);
